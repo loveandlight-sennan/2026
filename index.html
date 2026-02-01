@@ -1,4 +1,4 @@
-<!-- 変更概要: Accessの地図/導線/CTAを強化、アンケート文言とQR差し替え、ブース区分をNo.1-38/39-40/41-42に統一、Instagram+次回予定を最下部へ移動、Footerの電話/メールをリンク化、配置図の番号リンク/カード連動とBGM再生を追加。 -->
+<!-- 修正概要: 出展者名を公式表記に差し替え、カテゴリ判定を1-38/39-40/41-42で統一、配置図ピンを1-38のみに整理しカードへスクロール/ハイライト連動、キッチンカー/会議室の案内を分離。 -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -81,6 +81,10 @@
       transform: translate(-50%, -50%) scale(1.08);
       background: #d8819d;
       color: #fff;
+    }
+    .booth-card:target {
+      outline: 2px solid #f3b0c2;
+      box-shadow: 0 12px 30px rgba(216, 129, 157, 0.18);
     }
   </style>
 </head>
@@ -284,6 +288,12 @@
           </div>
         </div>
       </div>
+      <div class="mt-12 glass-card p-6 rounded-3xl soft-shadow border border-white max-w-4xl mx-auto">
+        <p class="text-sm text-gray-600 leading-relaxed">
+          <span class="font-bold text-pink-500">会議室（スペシャル）</span>は
+          <span class="font-bold text-pink-500">No.41 / No.42</span> の2ブースです。
+        </p>
+      </div>
     </div>
   </section>
 
@@ -347,100 +357,53 @@
           </div>
           <div class="booth-map">
             <img src="layout_hiradoma.png" alt="平土間ホール ブース番号レイアウト" class="w-full h-auto rounded-2xl bg-white p-3">
-            <a href="#booth-14" class="booth-pin" style="left: 36%; top: 12%;">14</a>
-            <a href="#booth-15" class="booth-pin" style="left: 46%; top: 12%;">15</a>
-            <a href="#booth-16" class="booth-pin" style="left: 56%; top: 12%;">16</a>
-            <a href="#booth-17" class="booth-pin" style="left: 66%; top: 12%;">17</a>
-            <a href="#booth-38" class="booth-pin" style="left: 76%; top: 12%;">38</a>
+            <a href="#booth-14" class="booth-pin" style="left: 36%; top: 15.5%;">14</a>
+            <a href="#booth-15" class="booth-pin" style="left: 44%; top: 15.5%;">15</a>
+            <a href="#booth-16" class="booth-pin" style="left: 53%; top: 15.5%;">16</a>
+            <a href="#booth-17" class="booth-pin" style="left: 62%; top: 15.5%;">17</a>
+            <a href="#booth-38" class="booth-pin" style="left: 70%; top: 15.5%;">38</a>
 
-            <a href="#booth-4" class="booth-pin" style="left: 18%; top: 26%;">4</a>
-            <a href="#booth-3" class="booth-pin" style="left: 18%; top: 36%;">3</a>
-            <a href="#booth-2" class="booth-pin" style="left: 18%; top: 46%;">2</a>
-            <a href="#booth-1" class="booth-pin" style="left: 18%; top: 56%;">1</a>
+            <a href="#booth-4" class="booth-pin" style="left: 19%; top: 30%;">4</a>
+            <a href="#booth-3" class="booth-pin" style="left: 19%; top: 43%;">3</a>
+            <a href="#booth-2" class="booth-pin" style="left: 19%; top: 57%;">2</a>
+            <a href="#booth-1" class="booth-pin" style="left: 19%; top: 70%;">1</a>
 
-            <a href="#booth-37" class="booth-pin" style="left: 82%; top: 28%;">37</a>
-            <a href="#booth-36" class="booth-pin" style="left: 82%; top: 40%;">36</a>
-            <a href="#booth-35" class="booth-pin" style="left: 82%; top: 52%;">35</a>
-            <a href="#booth-34" class="booth-pin" style="left: 82%; top: 64%;">34</a>
+            <a href="#booth-37" class="booth-pin" style="left: 84%; top: 28%;">37</a>
+            <a href="#booth-36" class="booth-pin" style="left: 84%; top: 43%;">36</a>
+            <a href="#booth-35" class="booth-pin" style="left: 84%; top: 57%;">35</a>
+            <a href="#booth-34" class="booth-pin" style="left: 84%; top: 71%;">34</a>
 
-            <a href="#booth-13" class="booth-pin" style="left: 42%; top: 30%;">13</a>
-            <a href="#booth-22" class="booth-pin" style="left: 50%; top: 30%;">22</a>
-            <a href="#booth-12" class="booth-pin" style="left: 42%; top: 38%;">12</a>
-            <a href="#booth-21" class="booth-pin" style="left: 50%; top: 38%;">21</a>
-            <a href="#booth-11" class="booth-pin" style="left: 42%; top: 46%;">11</a>
-            <a href="#booth-20" class="booth-pin" style="left: 50%; top: 46%;">20</a>
-            <a href="#booth-10" class="booth-pin" style="left: 42%; top: 54%;">10</a>
-            <a href="#booth-19" class="booth-pin" style="left: 50%; top: 54%;">19</a>
-            <a href="#booth-9" class="booth-pin" style="left: 42%; top: 62%;">9</a>
-            <a href="#booth-18" class="booth-pin" style="left: 50%; top: 62%;">18</a>
+            <a href="#booth-13" class="booth-pin" style="left: 36%; top: 32%;">13</a>
+            <a href="#booth-22" class="booth-pin" style="left: 44%; top: 32%;">22</a>
+            <a href="#booth-12" class="booth-pin" style="left: 36%; top: 41%;">12</a>
+            <a href="#booth-21" class="booth-pin" style="left: 44%; top: 41%;">21</a>
+            <a href="#booth-11" class="booth-pin" style="left: 36%; top: 49%;">11</a>
+            <a href="#booth-20" class="booth-pin" style="left: 44%; top: 49%;">20</a>
+            <a href="#booth-10" class="booth-pin" style="left: 36%; top: 58%;">10</a>
+            <a href="#booth-19" class="booth-pin" style="left: 44%; top: 58%;">19</a>
+            <a href="#booth-9" class="booth-pin" style="left: 36%; top: 66%;">9</a>
+            <a href="#booth-18" class="booth-pin" style="left: 44%; top: 66%;">18</a>
 
-            <a href="#booth-28" class="booth-pin" style="left: 62%; top: 30%;">28</a>
-            <a href="#booth-33" class="booth-pin" style="left: 70%; top: 30%;">33</a>
-            <a href="#booth-27" class="booth-pin" style="left: 62%; top: 38%;">27</a>
-            <a href="#booth-32" class="booth-pin" style="left: 70%; top: 38%;">32</a>
-            <a href="#booth-26" class="booth-pin" style="left: 62%; top: 46%;">26</a>
-            <a href="#booth-31" class="booth-pin" style="left: 70%; top: 46%;">31</a>
-            <a href="#booth-25" class="booth-pin" style="left: 62%; top: 54%;">25</a>
-            <a href="#booth-30" class="booth-pin" style="left: 70%; top: 54%;">30</a>
-            <a href="#booth-24" class="booth-pin" style="left: 62%; top: 62%;">24</a>
-            <a href="#booth-23" class="booth-pin" style="left: 62%; top: 70%;">23</a>
-            <a href="#booth-29" class="booth-pin" style="left: 70%; top: 70%;">29</a>
+            <a href="#booth-28" class="booth-pin" style="left: 60%; top: 32%;">28</a>
+            <a href="#booth-33" class="booth-pin" style="left: 68%; top: 32%;">33</a>
+            <a href="#booth-27" class="booth-pin" style="left: 60%; top: 39%;">27</a>
+            <a href="#booth-32" class="booth-pin" style="left: 68%; top: 41%;">32</a>
+            <a href="#booth-26" class="booth-pin" style="left: 60%; top: 44%;">26</a>
+            <a href="#booth-31" class="booth-pin" style="left: 68%; top: 49%;">31</a>
+            <a href="#booth-25" class="booth-pin" style="left: 60%; top: 49%;">25</a>
+            <a href="#booth-30" class="booth-pin" style="left: 68%; top: 58%;">30</a>
+            <a href="#booth-24" class="booth-pin" style="left: 60%; top: 58%;">24</a>
+            <a href="#booth-23" class="booth-pin" style="left: 60%; top: 66%;">23</a>
+            <a href="#booth-29" class="booth-pin" style="left: 68%; top: 66%;">29</a>
 
             <a href="#booth-5" class="booth-pin" style="left: 38%; top: 82%;">5</a>
             <a href="#booth-6" class="booth-pin" style="left: 48%; top: 82%;">6</a>
-            <a href="#booth-7" class="booth-pin" style="left: 58%; top: 82%;">7</a>
-            <a href="#booth-8" class="booth-pin" style="left: 68%; top: 82%;">8</a>
+            <a href="#booth-7" class="booth-pin" style="left: 57%; top: 82%;">7</a>
+            <a href="#booth-8" class="booth-pin" style="left: 66%; top: 82%;">8</a>
           </div>
           <p class="text-xs text-gray-500 mt-4 leading-relaxed">
             入口から入って「平土間ホール」へ。ブース番号は、出展者一覧のNoと対応しています。
           </p>
-          <div class="mt-4">
-            <p class="text-xs text-gray-500 mb-2">番号をタップすると該当の出店者カードへ移動できます。</p>
-            <div class="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 gap-2 text-xs">
-              <a href="#booth-1" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">1</a>
-              <a href="#booth-2" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">2</a>
-              <a href="#booth-3" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">3</a>
-              <a href="#booth-4" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">4</a>
-              <a href="#booth-5" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">5</a>
-              <a href="#booth-6" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">6</a>
-              <a href="#booth-7" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">7</a>
-              <a href="#booth-8" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">8</a>
-              <a href="#booth-9" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">9</a>
-              <a href="#booth-10" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">10</a>
-              <a href="#booth-11" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">11</a>
-              <a href="#booth-12" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">12</a>
-              <a href="#booth-13" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">13</a>
-              <a href="#booth-14" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">14</a>
-              <a href="#booth-15" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">15</a>
-              <a href="#booth-16" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">16</a>
-              <a href="#booth-17" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">17</a>
-              <a href="#booth-18" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">18</a>
-              <a href="#booth-19" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">19</a>
-              <a href="#booth-20" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">20</a>
-              <a href="#booth-21" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">21</a>
-              <a href="#booth-22" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">22</a>
-              <a href="#booth-23" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">23</a>
-              <a href="#booth-24" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">24</a>
-              <a href="#booth-25" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">25</a>
-              <a href="#booth-26" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">26</a>
-              <a href="#booth-27" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">27</a>
-              <a href="#booth-28" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">28</a>
-              <a href="#booth-29" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">29</a>
-              <a href="#booth-30" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">30</a>
-              <a href="#booth-31" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">31</a>
-              <a href="#booth-32" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">32</a>
-              <a href="#booth-33" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">33</a>
-              <a href="#booth-34" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">34</a>
-              <a href="#booth-35" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">35</a>
-              <a href="#booth-36" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">36</a>
-              <a href="#booth-37" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">37</a>
-              <a href="#booth-38" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">38</a>
-              <a href="#booth-39" class="px-2 py-1 rounded-full bg-amber-100 text-amber-700 text-center hover:bg-amber-200">39</a>
-              <a href="#booth-40" class="px-2 py-1 rounded-full bg-amber-100 text-amber-700 text-center hover:bg-amber-200">40</a>
-              <a href="#booth-41" class="px-2 py-1 rounded-full bg-pink-100 text-pink-600 text-center hover:bg-pink-200">41</a>
-              <a href="#booth-42" class="px-2 py-1 rounded-full bg-pink-100 text-pink-600 text-center hover:bg-pink-200">42</a>
-            </div>
-          </div>
         </div>
 
         <!-- How to walk -->
@@ -487,6 +450,12 @@
                 <li>・飲食 → 入口付近のキッチンカー（No.39〜40）</li>
                 <li>・特別企画 → 会議室（No.41〜42）</li>
               </ul>
+            </div>
+            <div class="bg-white/70 rounded-2xl p-5 border border-white">
+              <p class="text-sm font-bold text-gray-700 mb-2">入口付近：キッチンカー</p>
+              <p class="text-xs text-gray-600 leading-relaxed">
+                <span class="font-bold text-amber-600">No.39 / No.40</span> が入口付近に出店します。
+              </p>
             </div>
           </div>
         </div>
@@ -601,48 +570,48 @@
 
   <script>
     const exhibitors = [
-      { id: 1, name: "くるみ鍼灸治療院", detail: "鍼灸・筋膜リリース・シリカ販売" },
-      { id: 2, name: "セラピー ふうこ", detail: "楽健法(足圧整体)・ブロック解除" },
-      { id: 3, name: "名取接骨院", detail: "肩甲骨はがし" },
-      { id: 4, name: "ホッと! Smile", detail: "カイロプラクティック・美容エステ" },
-      { id: 5, name: "みよちゃんのお店", detail: "りんごジャムクッキー" },
-      { id: 6, name: "あとりえマシュマロ", detail: "メディカルアロマ作り" },
-      { id: 7, name: "山元ヒルズファーム", detail: "いちごがつなぐ笑顔" },
-      { id: 8, name: "株式会社あっぱれ", detail: "アカモク麺の試食販売" },
-      { id: 9, name: "叶星実", detail: "手相と数秘術の占術" },
-      { id: 10, name: "ブレインメンタリスト NOV", detail: "脳診断テスト" },
-      { id: 11, name: "メリージュ結婚相談所", detail: "無料結婚相談" },
-      { id: 12, name: "白魔女*菜翔", detail: "チャネリングカード鑑定" },
-      { id: 13, name: "フラ アロマまま", detail: "タロットお試しメニュー" },
-      { id: 14, name: "Find Natural Color", detail: "パーソナルカラー診断" },
-      { id: 15, name: "ひらみわつら工房", detail: "免疫力アップアクセサリー" },
-      { id: 16, name: "虹の橋マスミ", detail: "宇宙女神ヒーリング他" },
-      { id: 17, name: "オーラ分析・波動調整", detail: "オーラの可視化体験" },
-      { id: 18, name: "快運 マヤ暦と易占い", detail: "才能発見プロファイリング" },
-      { id: 19, name: "てらこやん18", detail: "カードプロファイリング" },
-      { id: 20, name: "いたばし千賀子", detail: "手相・タロット占い" },
-      { id: 21, name: "透視鑑定雷龍", detail: "透視鑑定及びヒーリング" },
-      { id: 22, name: "陰陽師 麻里", detail: "霊視×陰陽師の舞" },
-      { id: 23, name: "漢方養生たんぽぽ", detail: "漢方体質チェック" },
-      { id: 24, name: "SAYURI", detail: "魂の本質×手相セッション" },
-      { id: 25, name: "耳つぼ sato", detail: "耳つぼリフレ・ジュエリー" },
-      { id: 26, name: "幸せひろりん手相", detail: "心に火を灯す手相鑑定" },
-      { id: 27, name: "ドラゴンメッセンジャー", detail: "龍の想いを届けます" },
-      { id: 28, name: "ベラージュ", detail: "フレームセラピー・メイク体験" },
-      { id: 29, name: "花音 kanon", detail: "心理セラピストセッション" },
+      { id: 1,  name: "くるみ鍼灸治療院", detail: "鍼灸・筋膜リリース・松果体活性シリカ販売" },
+      { id: 2,  name: "ほんわか♡セラピー ふうこ", detail: "楽健法(足圧整体)・耳つぼ・ブロック解除など" },
+      { id: 3,  name: "名取接骨院", detail: "肩甲骨はがし" },
+      { id: 4,  name: "カイロプラクティック&美容カイロエステ　ホッと！Smile", detail: "カイロプラクティック施術体験 他" },
+      { id: 5,  name: "みよちゃんのお店", detail: "りんごジャムクッキー（1つ食べたら止まらない）" },
+      { id: 6,  name: "あとりえマシュマロ", detail: "自分で作るメディカルアロマ" },
+      { id: 7,  name: "株式会社山元ヒルズファーム", detail: "一粒のいちごがつなぐ家族の笑顔" },
+      { id: 8,  name: "株式会社あっぱれ", detail: "グルテンフリーアカモク麺の試食販売" },
+      { id: 9,  name: "手相&数秘術鑑定士 叶(きょう)星実(ほしみ)", detail: "手相と数秘術を併用した占術" },
+      { id: 10, name: "ブレインメンタリスト　NOV", detail: "脳診断テスト（3,000円）" },
+      { id: 11, name: "メリージュ結婚相談所", detail: "プロポーズアドバイザー・無料結婚相談" },
+      { id: 12, name: "白魔女*菜翔", detail: "チャネリングカード、ガイド鑑定" },
+      { id: 13, name: "フラ⭐︎アロマまま〜Terumi〜", detail: "タロットなどお試しメニュー（1,000円より）" },
+      { id: 14, name: "Find Natural Color", detail: "パーソナルカラー診断体験・海外製ストール販売" },
+      { id: 15, name: "ひらみわつら工房", detail: "免疫力アップアクセサリー販売" },
+      { id: 16, name: "スピリチュアルライトワーカー 虹の橋マスミ", detail: "超波動オイル・宇宙女神ヒーリング他（2,000円〜）" },
+      { id: 17, name: "オーラ分析・波動調整", detail: "" },
+      { id: 18, name: "あおいとアキエルの快運 マヤ暦と易占い", detail: "マヤ暦＆易占い（20分2,000円 / 30分3,000円）" },
+      { id: 19, name: "てらこやん18", detail: "あなたの才能発見・カードプロファイリング" },
+      { id: 20, name: "あなたの道開き手相鑑定士 いたばし千賀子", detail: "手相鑑定 / タロット占い（各20分2,000円）" },
+      { id: 21, name: "透視鑑定　雷龍", detail: "透視鑑定及びヒーリング（約30分3,000円）" },
+      { id: 22, name: "Angel Light 陰陽師 麻里", detail: "霊視×陰陽師の舞（ビジネス/縁切り/縁結び等 2,000円〜20,000円）" },
+      { id: 23, name: "漢方養生サロンたんぽぽ", detail: "漢方体質チェック（薬膳茶付き）・レイキ・ヘッドリフレ 他" },
+      { id: 24, name: "スピリチュアルワーカーSAYURI", detail: "魂の本質 × 手相開運セッション" },
+      { id: 25, name: "エメラルド式耳つぼリフレクソロジーのお店　sato", detail: "耳つぼリフレクソロジー・耳つぼジュエリー" },
+      { id: 26, name: "幸せひろりん手相", detail: "人の心に火を灯し元気になる手相鑑定" },
+      { id: 27, name: "ドラゴンメッセンジャー®", detail: "龍の想いをあなたに届けます" },
+      { id: 28, name: "Beauty.Aging ベラージュ", detail: "フレームセラピー®リセットケア・祝式メイクセラピー体験 他" },
+      { id: 29, name: "花音＊kanon", detail: "看護師/保健師の資格ももつ心理セラピスト・数種類のセッション" },
       { id: 30, name: "時代屋", detail: "キネシオロジー・守護神鑑定" },
-      { id: 31, name: "松本啓(ひろ)", detail: "手相鑑定 20分" },
-      { id: 32, name: "エヴァンジェリスト サラ", detail: "マヤ暦&易経セッション" },
-      { id: 33, name: "ルシェンテ", detail: "ハンドマッサージ・ノーズwax" },
-      { id: 34, name: "天と泉", detail: "フィートセラピー" },
-      { id: 35, name: "陽だまり", detail: "美生氣功ヒーリング" },
-      { id: 36, name: "くるみdeアロマ", detail: "天然アロマオイルマッサージ" },
+      { id: 31, name: "とねりこの木 手相鑑定士 松本啓(ひろ)", detail: "手相鑑定 20分 3,000円" },
+      { id: 32, name: "エヴァンジェリスト　サラ", detail: "マヤ暦＆易経セッション（15分2,000円）" },
+      { id: 33, name: "トータルビューティサロン ルシェンテ", detail: "ハンドマッサージ1,000円 / ノーズwax500円 他" },
+      { id: 34, name: "天と泉〜ten to sen〜", detail: "フィートセラピー（20分〜30分 3,000円）" },
+      { id: 35, name: "美生氣功ヒーリングサロン 陽だまり", detail: "身体も心も心地よく緩んで巡り軽くなる" },
+      { id: 36, name: "くるみdeアロマ", detail: "天然アロマオイルでマッサージ" },
       { id: 37, name: "足つぼ青空", detail: "足つぼマッサージ" },
-      { id: 38, name: "キッチンSara & Kuu", detail: "全粒粉小麦のこだわりメニュー" },
-      { id: 39, name: "ibiscafe船岡", detail: "【キッチンカー】ご飯・スイーツ" },
-      { id: 40, name: "みみちゃんのカフェ", detail: "【キッチンカー】軽食・カフェ" },
-      { id: 41, name: "POCKET FITNESS", detail: "【会議室】お悩み相談・エクササイズ" },
-      { id: 42, name: "サンドラお話し会", detail: "【会議室】2026年の静かな変化" }
+      { id: 38, name: "キッチンSara＆Kuu", detail: "宮城県産の全粒粉小麦を使用しております" },
+      { id: 39, name: "ibiscafe船岡", detail: "【キッチンカー】ご飯物、軽食、スイーツ系など" },
+      { id: 40, name: "みみちゃんの気まぐれカフェ", detail: "【キッチンカー】軽食、カフェ" },
+      { id: 41, name: "POCKET FITNESS宮城岩沼店", detail: "【会議室】身体のお悩み相談、改善方法・お家でできるエクササイズ" },
+      { id: 42, name: "サンドラさんのお話会", detail: "【会議室】13時〜14時開催 / 料金 500円" }
     ];
 
     const container = document.getElementById('exhibitor-container');
@@ -659,7 +628,7 @@
 
       const card = document.createElement('div');
       card.id = `booth-${ex.id}`;
-      card.className = 'bg-white p-6 rounded-3xl shadow-sm border border-pink-50 hover:shadow-md transition-all group cursor-default scroll-mt-28';
+      card.className = 'booth-card bg-white p-6 rounded-3xl shadow-sm border border-pink-50 hover:shadow-md transition-all group cursor-default scroll-mt-28';
 
       card.innerHTML = `
         <div class="flex items-center gap-4">
