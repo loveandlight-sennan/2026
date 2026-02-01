@@ -1,336 +1,684 @@
+<!-- 変更概要: Accessの地図/導線/CTAを強化、アンケート文言とQR差し替え、ブース区分をNo.1-38/39-40/41-42に統一、Instagram+次回予定を最下部へ移動、Footerの電話/メールをリンク化、配置図の番号リンク/カード連動とBGM再生を追加。 -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>☆第1回 Love and Light Sennan 開催！【出店者募集】☆</title>
-    <meta name="description" content="『第1回 Love and Light Sennan』の開催情報と出店者募集要項。愛と光と笑顔のバトンをお届けします。">
-    <style>
-        /* POPなイメージのカラースキームとフォント設定 */
-        :root {
-            --primary-color: #FF69B4; /* ホットピンク */
-            --secondary-color: #FFC300; /* ビタミンイエロー */
-            --text-color: #333333;
-            --bg-body: #FFF5FD; /* 非常に薄いピンク */
-            --bg-container: #ffffff;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love and Light Sennan vol.1 | 2026.02.22</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans JP', 'Zen Maru Gothic', sans-serif;
+      background-color: #fefcfd;
+      color: #4a4a4a;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #fff5f5 0%, #f3f0ff 50%, #e0f2fe 100%);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+    }
+    .accent-text { color: #d8819d; }
 
-        body {
-            font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-            line-height: 1.8;
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-body);
-        }
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 25px;
-            background-color: var(--bg-container);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            border-radius: 15px;
-            border: 5px solid var(--primary-color);
-        }
-        
-        /* ヘッダーデザイン */
-        header {
-            text-align: center;
-            padding-bottom: 20px;
-            border-bottom: 5px dashed var(--secondary-color);
-            margin-bottom: 30px;
-        }
-        h1 {
-            color: var(--primary-color);
-            font-size: 3.2em;
-            margin-bottom: 5px;
-            text-shadow: 3px 3px 0px var(--secondary-color);
-            letter-spacing: 2px;
-        }
-        
-        /* セクションタイトルデザイン */
-        h2 {
-            color: var(--text-color);
-            background-color: var(--secondary-color);
-            border-radius: 10px;
-            padding: 10px 15px;
-            margin-top: 40px;
-            font-size: 2em;
-            text-align: center;
-            box-shadow: 2px 2px 0px #F98866;
-            border: 2px solid var(--secondary-color);
-        }
-        h3 {
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--secondary-color);
-            padding-bottom: 5px;
-            margin-top: 30px;
-            font-size: 1.4em;
-        }
+    /* 有機的なフォトフレーム */
+    .blob-frame {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 15px 35px rgba(216, 129, 157, 0.15);
+      transition: all 0.8s ease-in-out;
+    }
+    .blob-frame:hover {
+      border-radius: 40% 60% 70% 30% / 30% 70% 40% 60%;
+      transform: scale(1.04) rotate(1deg);
+    }
+    .mascot-panda { filter: drop-shadow(0 5px 15px rgba(0,0,0,0.12)); }
 
-        /* テーマボックス */
-        .theme {
-            background-color: #FFDDEE;
-            padding: 20px;
-            border: 3px dashed var(--primary-color);
-            border-radius: 15px;
-            margin-bottom: 20px;
-            text-align: center;
-            font-style: italic;
-        }
-        .theme strong {
-            font-size: 1.1em;
-            color: var(--primary-color);
-        }
-        
-        /* イベント情報テーブル */
-        .info-table {
-            width: 100%;
-            border-collapse: separate; /* 枠線を分離して角を丸くする */
-            border-spacing: 0 8px; /* 行の間にスペース */
-        }
-        .info-table th, .info-table td {
-            padding: 12px;
-            text-align: left;
-            background-color: #fff;
-            border-left: 5px solid var(--secondary-color);
-        }
-        .info-table tr:nth-child(odd) td {
-            background-color: #FFF0F5; /* 交互の行に色を付ける */
-        }
-        .info-table th {
-            width: 30%;
-            background-color: var(--primary-color);
-            color: white;
-            font-weight: bold;
-            border-left: none;
-            border-radius: 5px 0 0 5px;
-        }
-        
-        /* ブースリスト */
-        .booth-list {
-            list-style: none;
-            padding: 0;
-        }
-        .booth-list li {
-            background: #FFEDF5;
-            padding: 15px;
-            border-left: 8px solid var(--primary-color);
-            margin-bottom: 12px;
-            border-radius: 5px;
-            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-            font-weight: bold;
-        }
+    .floating { animation: floating 3s ease-in-out infinite; }
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    .tree-sway {
+      animation: treeSway 18s ease-in-out infinite;
+      transform-origin: 50% 60%;
+    }
+    @keyframes treeSway {
+      0% { transform: scale(1.02) translateX(0px) translateY(0px) rotate(0deg); }
+      50% { transform: scale(1.04) translateX(-6px) translateY(-4px) rotate(0.2deg); }
+      100% { transform: scale(1.02) translateX(0px) translateY(0px) rotate(0deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tree-sway { animation: none; }
+    }
 
-        /* アラート/重要情報 (フキダシ風) */
-        .alert {
-            color: #D00000;
-            font-weight: bold;
-            margin-top: 25px;
-            padding: 20px;
-            border: 4px dotted #D00000;
-            background-color: var(--secondary-color);
-            text-align: center;
-            border-radius: 15px;
-            box-shadow: 5px 5px 0px var(--primary-color); /* 影で立体感を出す */
-        }
-
-        /* アクションボタン (3D風) */
-        .button {
-            display: block;
-            width: 80%;
-            max-width: 450px;
-            margin: 40px auto;
-            padding: 18px 20px;
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 40px;
-            font-size: 1.4em;
-            font-weight: 900;
-            box-shadow: 0 8px 0 #D00080; /* 下の影で立体感を強調 */
-            transition: all 0.1s;
-        }
-        .button:hover {
-            background-color: #e65c8a;
-        }
-        .button:active {
-            box-shadow: 0 2px 0 #D00080; /* 押された時のエフェクト */
-            transform: translateY(6px);
-        }
-        
-        /* お問い合わせ情報 */
-        .contact-info {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            border: 1px solid #ddd;
-        }
-        
-        /* その他の装飾・注意書き */
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-            border-top: 2px solid #eee;
-            font-size: 0.9em;
-            color: #666;
-        }
-        .note {
-            font-size: 0.85em;
-            color: #777;
-            margin-top: 5px;
-        }
-
-        /* 地図セクションのスタイル */
-        .map-section {
-            text-align: center;
-            padding: 15px 0;
-            background-color: #f8f8f8;
-            border-radius: 10px;
-        }
-        .map-link {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #4285F4; /* Google Blue */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-    </style>
+    .soft-shadow { box-shadow: 0 18px 50px rgba(0,0,0,0.08); }
+    .pill { border: 1px solid rgba(255,255,255,0.6); }
+    .booth-map { position: relative; }
+    .booth-pin {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 28px;
+      height: 28px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(216, 129, 157, 0.35);
+      color: #d8819d;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .booth-pin:hover,
+    .booth-pin:focus {
+      transform: translate(-50%, -50%) scale(1.08);
+      background: #d8819d;
+      color: #fff;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <p style="font-size: 1.5em; color: #666; font-weight: bold;">Love and Light グループ開催</p>
-            <h1>第1回 Love and Light Sennan</h1>
-            <p style="font-size: 1.2em; color: var(--primary-color); font-weight: bold;">愛と光と笑顔のバトンがみなさまに届きますように、、、💖✨</p>
-        </header>
 
-        <section id="event-theme">
-            <h2>🎉 開催概要・テーマ 🎉</h2>
-            <div class="theme">
-                <p><strong>「お客様の心と身体、魂にまで Love and Light 愛と光をお届けします。そしてそれが大切な地球を守ることに繋がりますように、、、」</strong></p>
-            </div>
-            <p>過去開催されてきた『Love and Light 仙南』をリニューアル！</p>
-            <p>蔵王連峰を望む雄大な自然あふれる仙南地方で開催し、出店者・お客様も共に楽しめ、みなさんが笑顔になれる、特別な空間をご提供します。</p>
-        </section>
+  <!-- Hero -->
+  <header class="hero-gradient min-h-screen flex flex-col justify-center items-center px-4 relative overflow-hidden">
+    <!-- Background image -->
+    <img
+      src="hero_tree.png"
+      alt="Love and Light（ハートの木）"
+      class="absolute inset-0 w-full h-full object-cover opacity-35 tree-sway"
+    />
+    <div class="absolute inset-0 hero-gradient opacity-70"></div>
 
-        <hr style="border: 0; border-top: 2px dotted #ccc;">
-
-        <section id="event-info">
-            <h2>📅 イベント情報 🏠</h2>
-            <table class="info-table">
-                <tr>
-                    <th>イベント名</th>
-                    <td>第1回 Love and Light Sennan (らぶあんどらいと せんなん)</td>
-                </tr>
-                <tr>
-                    <th>開催日時</th>
-                    <td>
-                        <strong style="font-size: 1.2em; color: var(--primary-color);">2026年2月22日(日)</strong><br>
-                        10:00〜16:00
-                        <p class="note">※終了時間は16:00ですが、17:00までに完全撤収を完了してください。</p>
-                    </td>
-                </tr>
-                <tr>
-                    <th>開催会場</th>
-                    <td>
-                        <strong>えずこホール (仙南芸術文化センター)</strong><br>
-                        〒989-1267 宮城県柴田郡大河原町小島1-1<br>
-                        <a href="tel:0224523004">TEL: 0224-52-3004</a>
-                    </td>
-                </tr>
-            </table>
-        </section>
-
-        <hr style="border: 0; border-top: 2px dotted #ccc;">
-        
-        <section id="access-map">
-            <h2>📍 アクセス情報・地図 🗺️</h2>
-            <div class="map-section">
-                <p>会場の位置を地図でご確認いただけます。駐車場も完備しています。</p>
-                <a href="https://maps.google.com/?cid=11420271839653362165&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="map-link">
-                    Googleマップで会場を見る 🚗
-                </a>
-            </div>
-            <h3 style="margin-top: 20px;">会場へのアクセス（参考）</h3>
-            <ul style="list-style-type: '👉 '; padding-left: 25px;">
-                <li>**お車でお越しの方:** 駐車場を完備しております。</li>
-                <li>**公共交通機関をご利用の方:** JR東北本線「大河原駅」より車で約10分です。</li>
-            </ul>
-        </section>
-        <hr style="border: 0; border-top: 2px dotted #ccc;">
-
-        <section id="booth-recruit">
-            <h2>🌟 出店者募集要項 🌟</h2>
-
-            <h3>ブースの種類と料金</h3>
-            <ul class="booth-list">
-                <li><strong>1ブース:</strong> ¥5,000</li>
-                <li><strong>テーブル持込 施術ブース:</strong> ¥5,000</li>
-                <li><strong>半ブース:</strong> ¥3,000
-　　　　　　　　　　 <p class="note">※半ブースでのご利用は、セッションのみとなります。</p>
-                <li><strong>キッチンカー:</strong> ¥6,000
-                   
-                </li>
-            </ul>
-            
-            <div class="alert">
-                <p><strong>🚨【超重要】前回は募集開始から10日でSOLD OUT！🚨</strong></p>
-                <p>お早目のお申し込みをお願いいたします！</p>
-                <p style="font-size: 1.5em; margin: 10px 0;"><strong>募集締め切り日: 10月31日</strong></p>
-            </div>
-
-            <h3>お申し込み方法と流れ</h3>
-            <ol style="font-weight: bold;">
-                <li>下記**お申し込みフォーム**から必要事項を記入し、お申し込みください。</li>
-                <li>実行委員会より、出店確定のご連絡をいたします。</li>
-                <li>確定のご連絡後、**1週間以内**に出店料のお振込みをお願いいたします。</li>
-            </ol>
-            <p class="note">※お振込確認のため、ご本人様名義からのお振込をお願いいたします。難しい場合は事前にご連絡ください。</p>
-
-            <a href="https://forms.gle/4yHdTH6aF21HQ6LC8" target="_blank" class="button">
-                ✨ イベント申込みフォームへGO! ✨
-            </a>
-            <p class="note" style="text-align: center;">※募集店舗数が定数を超えた場合は抽選とさせて頂きます。ご了承ください。</p>
-
-            <h3>出店に関する主なルールとお願い</h3>
-            <ul style="list-style-type: '💡 '; padding-left: 25px;">
-                <li>**キャンセル料:** ご入金後の出店料は、いかなる場合も返金できませんのでご了承下さい。</li>
-                <li>**備品貸出 (無料):** 長テーブル、半テーブルをご用意できます。</li>
-                <li>**電源:** 使用される方は機器(例:電気ポット)とワット数を申し込みホームにご記入下さい。延長コードは各自ご持参下さい。</li>
-                <li>**食品出店:** 食品衛生上のトラブルは、各店舗での自己責任において対応となります。主催者は責任を負いかねます。</li>
-                <li>**イベントの中止:** 災害、警報発令、緊急事態などにより、中止・延期となる場合がございます。</li>
-                <li>**厳禁事項:** お客様に不快な思いをさせたり、ネットワークビジネス、宗教などの勧誘を確認した時点で即時退場とさせて頂きます。</li>
-                <li>**価格設定のお願い:** たくさんのお客様に楽しんでいただくため、**3,000円以下**の金額設定でお願いいたします。</li>
-                <li>**自己管理:** 現金や貴重品は必ず身に付けて自己管理をお願いします。会場内での紛失、盗難、破損等の事故について、主催者は一切の責任を負いかねます。</li>
-            </ul>
-        </section>
-
-        <hr style="border: 0; border-top: 2px dotted #ccc;">
-
-        <section id="contact">
-            <h2>💌 お問い合わせ・実行委員会 📞</h2>
-            <div class="contact-info">
-                <p>イベントに紹介したい方がいる場合は、最初に紹介者の方から下記までご連絡願います。</p>
-                <p style="font-size: 1.1em;">
-                    <strong>実行委員長:</strong> 加藤英司<br>
-                    <strong>電話番号:</strong> <strong style="color: #D00080;"><a href="tel:09034695425">090-3469-5425</a></strong></p>
-                <p><strong>広報:</strong> 佐藤貴子</p>
-            </div>
-            <p style="text-align: center; margin-top: 30px; font-size: 1.1em; color: var(--primary-color);">
-                皆様のご活躍を心よりお祈り申し上げます！
-            </p>
-        </section>
-
-        <footer>
-            <p>主催: Love and Light Sennan 実行委員会</p>
-        </footer>
+    <!-- Soft blobs -->
+    <div class="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none">
+      <div class="absolute top-10 left-10 w-64 h-64 bg-pink-200 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-10 w-80 h-80 bg-blue-100 rounded-full blur-3xl"></div>
     </div>
+
+    <div class="z-10 text-center max-w-4xl mx-auto">
+      <div class="mb-6 inline-block bg-white/60 px-4 py-1 rounded-full text-xs tracking-widest text-pink-400 font-bold pill">
+        LOVE & LIGHT SENNAN VOL.1
+      </div>
+
+      <h1 class="text-6xl md:text-8xl font-light mb-8 tracking-tight leading-tight">
+        Love and Light<br><span class="accent-text font-medium">Sennan</span>
+      </h1>
+
+      <p class="text-xl md:text-2xl text-gray-700 mb-10 leading-relaxed font-light">
+        東北の地を愛と光で包みたい！<br>
+        2026.02.22 SUN | 11:00 - 16:00
+      </p>
+
+      <div class="mb-8 flex justify-center">
+        <div class="glass-card inline-flex flex-col items-center gap-3 px-6 py-4 rounded-3xl soft-shadow border border-white">
+          <p class="text-xs text-pink-400 font-bold tracking-widest">BGM</p>
+          <audio controls preload="none" loop class="w-64 max-w-full">
+            <source src="bgm.mp3" type="audio/mpeg">
+            お使いのブラウザは音声再生に対応していません。
+          </audio>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+        <div class="glass-card p-6 rounded-3xl soft-shadow flex items-center gap-4">
+          <div class="text-left">
+            <p class="text-sm text-pink-400 font-bold">VENUE</p>
+            <p class="text-lg font-medium">えずこホール 仙南芸術文化センター</p>
+            <p class="text-sm text-gray-500 mt-1">宮城県柴田郡大河原町字小島1-1</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 glass-card px-5 py-4 rounded-3xl soft-shadow">
+          <img src="panda_point.png" alt="案内パンダ" class="w-12 h-12 mascot-panda object-contain">
+          <div class="text-left">
+            <p class="text-xs text-gray-500 font-bold">はじめての方へ</p>
+            <p class="text-sm text-pink-500 font-bold">下の「会場内案内」を見てね！</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#venue" class="inline-block bg-pink-400 text-white font-bold px-8 py-4 rounded-2xl hover:bg-pink-500 transition-all soft-shadow">
+          会場内案内を見る
+        </a>
+        <a href="#access" class="inline-block bg-white/70 text-pink-500 font-bold px-8 py-4 rounded-2xl hover:bg-white transition-all soft-shadow border border-white">
+          アクセスを見る
+        </a>
+        <a href="#exhibitors" class="inline-block bg-white/70 text-pink-500 font-bold px-8 py-4 rounded-2xl hover:bg-white transition-all soft-shadow border border-white">
+          出展者一覧へ
+        </a>
+        <a href="#survey" class="inline-block bg-blue-400 text-white font-bold px-8 py-4 rounded-2xl hover:bg-blue-500 transition-all soft-shadow">
+          アンケートへ
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Access -->
+  <section class="py-24 px-4 bg-white relative" id="access">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl accent-text font-light">Access</h2>
+        <p class="text-gray-500 mt-3">えずこホールへのアクセスと導線をまとめました</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-10">
+        <div class="glass-card p-6 rounded-[2rem] soft-shadow border border-white">
+          <div class="aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white bg-white">
+            <iframe
+              class="w-full h-full"
+              src="https://www.google.com/maps?q=3P7Q%2BJ6%20%E5%A4%A7%E6%B2%B3%E5%8E%9F%E7%94%BA%E3%80%81%E5%AE%AE%E5%9F%8E%E7%9C%8C&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="えずこホール Googleマップ"
+            ></iframe>
+          </div>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=3P7Q%2BJ6%20%E5%A4%A7%E6%B2%B3%E5%8E%9F%E7%94%BA%E3%80%81%E5%AE%AE%E5%9F%8E%E7%9C%8C"
+              class="inline-flex items-center gap-2 bg-pink-400 text-white font-bold px-5 py-3 rounded-2xl hover:bg-pink-500 transition-all soft-shadow"
+              target="_blank"
+              rel="noopener"
+            >
+              Googleマップで開く
+            </a>
+            <div class="flex items-center gap-3 text-xs text-gray-500">
+              <span class="inline-block w-2 h-2 rounded-full bg-pink-300"></span>
+              住所：宮城県柴田郡大河原町字小島1-1
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-pink-50/60 p-8 rounded-3xl soft-shadow border border-pink-100">
+          <h3 class="text-lg font-bold text-gray-700 mb-6">来場の流れ（アクセス導線）</h3>
+          <div class="space-y-5 text-sm text-gray-600 leading-relaxed">
+            <p>
+              ① 駐車場（無料）に到着 → ② 会場出入口へ移動 →
+              ③ 平土間ホール（メイン会場）へ入場
+            </p>
+            <p>
+              キッチンカーは入口付近（No.39〜40）に出店。飲食や待ち合わせに便利です。
+            </p>
+            <p>
+              特別企画（POCKET FITNESS / お話し会）は1F会議室（No.41〜42）で実施します。
+            </p>
+          </div>
+          <div class="mt-6 glass-card p-4 rounded-2xl border border-white">
+            <p class="text-xs text-gray-600">
+              迷ったら「会場内案内」をご確認ください。入口から平土間ホールへの導線を図で案内しています。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Programs -->
+  <section class="py-24 px-4 bg-white relative" id="special">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-20">
+        <h2 class="text-4xl accent-text font-light mb-4">Special Program</h2>
+        <p class="text-gray-400">会議室で開催｜ワンコインで体と心を整える</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-16">
+        <!-- Pocket Fitness -->
+        <div class="flex flex-col items-center group">
+          <div class="blob-frame w-80 h-80 mb-10">
+            <img src="pocket_fitness.png" alt="POCKET FITNESS" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          </div>
+
+          <div class="glass-card rounded-[2.5rem] p-10 soft-shadow border-t-8 border-blue-200 w-full relative">
+            <div class="absolute -top-5 right-10 bg-blue-400 text-white px-6 py-2 rounded-full font-bold soft-shadow">
+              ¥500
+            </div>
+
+            <h3 class="text-2xl font-bold mb-2 text-blue-500">POCKET FITNESS</h3>
+            <p class="text-sm font-bold text-gray-400 mb-6">1F 会議室｜11:00-12:30 / 14:30-16:00</p>
+
+            <ul class="text-gray-600 leading-relaxed mb-8 text-left space-y-2 text-sm">
+              <li>・体組成測定（体の測定）</li>
+              <li>・測定後、トレーナーが状態に合わせてカウンセリング</li>
+              <li>・整う→めぐる→燃やす｜自宅でできるストレッチ＆トレーニング</li>
+            </ul>
+
+            <div class="bg-blue-50/60 rounded-2xl p-4 text-sm text-blue-700 font-bold">
+              ★ カウンセリングを受けた方は、ストレッチは無料（現地案内に従ってください）
+            </div>
+          </div>
+        </div>
+
+        <!-- Sandora -->
+        <div class="flex flex-col items-center group">
+          <div class="blob-frame w-80 h-80 mb-10">
+            <img src="sandora.png" alt="SANDORA" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          </div>
+
+          <div class="glass-card rounded-[2.5rem] p-10 soft-shadow border-t-8 border-pink-200 w-full relative">
+            <div class="absolute -top-5 right-10 bg-pink-400 text-white px-6 py-2 rounded-full font-bold soft-shadow">
+              ¥500
+            </div>
+
+            <h3 class="text-2xl font-bold mb-2 text-pink-500">SANDORAさん お話し会</h3>
+            <p class="text-sm font-bold text-gray-400 mb-6">1F 会議室｜13:00-14:00</p>
+
+            <p class="text-gray-600 leading-relaxed text-left mb-6 text-sm">
+              2026年、日本に生きる私たちに起きている「静かな変化」<br>
+              <span class="text-gray-500">— 日本に生まれた意味が、自然に立ち上がるとき —</span>
+            </p>
+
+            <ul class="text-gray-600 leading-relaxed text-left text-sm space-y-2">
+              <li>・2026年はどんな年か</li>
+              <li>・日本人が持つ “役割” の話</li>
+              <li>・使命とは何か？</li>
+              <li>・まとめ</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue Guide (強化版：導線＋会場内レイアウトをしっかり組込) -->
+  <section class="py-24 bg-pink-50/30 px-4 overflow-hidden" id="venue">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl accent-text font-light">Venue Guide</h2>
+        <p class="text-gray-500 mt-3">「どこから入る？どこに行く？」が迷わないように、導線と会場内配置をまとめました</p>
+        <p class="text-sm text-pink-500 font-bold mt-3">平土間ホール＝メイン会場</p>
+      </div>
+
+      <!-- Top: Access flow map -->
+      <div class="relative mb-14">
+        <div class="absolute -top-10 -left-2 md:-left-8 z-20 floating">
+          <div class="flex items-center gap-2">
+            <img src="panda_point.png" alt="案内パンダ" class="w-16 h-16 mascot-panda object-contain">
+            <div class="bg-white px-4 py-2 rounded-2xl soft-shadow text-xs font-bold text-pink-500">
+              駐車場 → 会場出入口 → 会場（ここだよ！）
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card p-6 rounded-[2rem] soft-shadow border border-white">
+          <div class="flex items-center justify-between gap-4 flex-col md:flex-row">
+            <div class="w-full">
+              <img src="map_access.png" alt="駐車場から会場出入口までの導線" class="w-full h-auto rounded-2xl border border-white">
+            </div>
+          </div>
+
+          <div class="mt-6 grid md:grid-cols-3 gap-4">
+            <div class="bg-white/70 rounded-2xl p-5 border border-white">
+              <p class="text-sm font-bold text-gray-700 mb-2">① 駐車場（無料）</p>
+              <p class="text-xs text-gray-600 leading-relaxed">
+                車で来場の方は「P駐車場」へ。混雑時はスタッフ案内に従ってください。
+              </p>
+            </div>
+            <div class="bg-white/70 rounded-2xl p-5 border border-white">
+              <p class="text-sm font-bold text-gray-700 mb-2">② 会場出入口</p>
+              <p class="text-xs text-gray-600 leading-relaxed">
+                導線図の赤矢印に沿って「会場出入口」へ。キッチンカーも入口付近です。
+              </p>
+            </div>
+            <div class="bg-white/70 rounded-2xl p-5 border border-white">
+              <p class="text-sm font-bold text-gray-700 mb-2">③ メイン会場・特別企画</p>
+              <p class="text-xs text-gray-600 leading-relaxed">
+                メインは「平土間ホール」。特別企画（POCKET FITNESS / お話し会）は「会議室」です。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Middle: Inside layout + how to walk -->
+      <div class="grid lg:grid-cols-2 gap-10 mb-16">
+        <!-- Layout image -->
+        <div class="glass-card p-6 rounded-[2rem] soft-shadow border border-white" id="hiradoma-map">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-bold text-gray-700">会場内：平土間ホール（ブース番号配置）</h3>
+            <span class="text-xs font-bold bg-pink-100 text-pink-600 px-3 py-1 rounded-full">No.1〜No.38</span>
+          </div>
+          <div class="booth-map">
+            <img src="layout_hiradoma.png" alt="平土間ホール ブース番号レイアウト" class="w-full h-auto rounded-2xl bg-white p-3">
+            <a href="#booth-14" class="booth-pin" style="left: 36%; top: 12%;">14</a>
+            <a href="#booth-15" class="booth-pin" style="left: 46%; top: 12%;">15</a>
+            <a href="#booth-16" class="booth-pin" style="left: 56%; top: 12%;">16</a>
+            <a href="#booth-17" class="booth-pin" style="left: 66%; top: 12%;">17</a>
+            <a href="#booth-38" class="booth-pin" style="left: 76%; top: 12%;">38</a>
+
+            <a href="#booth-4" class="booth-pin" style="left: 18%; top: 26%;">4</a>
+            <a href="#booth-3" class="booth-pin" style="left: 18%; top: 36%;">3</a>
+            <a href="#booth-2" class="booth-pin" style="left: 18%; top: 46%;">2</a>
+            <a href="#booth-1" class="booth-pin" style="left: 18%; top: 56%;">1</a>
+
+            <a href="#booth-37" class="booth-pin" style="left: 82%; top: 28%;">37</a>
+            <a href="#booth-36" class="booth-pin" style="left: 82%; top: 40%;">36</a>
+            <a href="#booth-35" class="booth-pin" style="left: 82%; top: 52%;">35</a>
+            <a href="#booth-34" class="booth-pin" style="left: 82%; top: 64%;">34</a>
+
+            <a href="#booth-13" class="booth-pin" style="left: 42%; top: 30%;">13</a>
+            <a href="#booth-22" class="booth-pin" style="left: 50%; top: 30%;">22</a>
+            <a href="#booth-12" class="booth-pin" style="left: 42%; top: 38%;">12</a>
+            <a href="#booth-21" class="booth-pin" style="left: 50%; top: 38%;">21</a>
+            <a href="#booth-11" class="booth-pin" style="left: 42%; top: 46%;">11</a>
+            <a href="#booth-20" class="booth-pin" style="left: 50%; top: 46%;">20</a>
+            <a href="#booth-10" class="booth-pin" style="left: 42%; top: 54%;">10</a>
+            <a href="#booth-19" class="booth-pin" style="left: 50%; top: 54%;">19</a>
+            <a href="#booth-9" class="booth-pin" style="left: 42%; top: 62%;">9</a>
+            <a href="#booth-18" class="booth-pin" style="left: 50%; top: 62%;">18</a>
+
+            <a href="#booth-28" class="booth-pin" style="left: 62%; top: 30%;">28</a>
+            <a href="#booth-33" class="booth-pin" style="left: 70%; top: 30%;">33</a>
+            <a href="#booth-27" class="booth-pin" style="left: 62%; top: 38%;">27</a>
+            <a href="#booth-32" class="booth-pin" style="left: 70%; top: 38%;">32</a>
+            <a href="#booth-26" class="booth-pin" style="left: 62%; top: 46%;">26</a>
+            <a href="#booth-31" class="booth-pin" style="left: 70%; top: 46%;">31</a>
+            <a href="#booth-25" class="booth-pin" style="left: 62%; top: 54%;">25</a>
+            <a href="#booth-30" class="booth-pin" style="left: 70%; top: 54%;">30</a>
+            <a href="#booth-24" class="booth-pin" style="left: 62%; top: 62%;">24</a>
+            <a href="#booth-23" class="booth-pin" style="left: 62%; top: 70%;">23</a>
+            <a href="#booth-29" class="booth-pin" style="left: 70%; top: 70%;">29</a>
+
+            <a href="#booth-5" class="booth-pin" style="left: 38%; top: 82%;">5</a>
+            <a href="#booth-6" class="booth-pin" style="left: 48%; top: 82%;">6</a>
+            <a href="#booth-7" class="booth-pin" style="left: 58%; top: 82%;">7</a>
+            <a href="#booth-8" class="booth-pin" style="left: 68%; top: 82%;">8</a>
+          </div>
+          <p class="text-xs text-gray-500 mt-4 leading-relaxed">
+            入口から入って「平土間ホール」へ。ブース番号は、出展者一覧のNoと対応しています。
+          </p>
+          <div class="mt-4">
+            <p class="text-xs text-gray-500 mb-2">番号をタップすると該当の出店者カードへ移動できます。</p>
+            <div class="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 gap-2 text-xs">
+              <a href="#booth-1" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">1</a>
+              <a href="#booth-2" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">2</a>
+              <a href="#booth-3" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">3</a>
+              <a href="#booth-4" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">4</a>
+              <a href="#booth-5" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">5</a>
+              <a href="#booth-6" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">6</a>
+              <a href="#booth-7" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">7</a>
+              <a href="#booth-8" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">8</a>
+              <a href="#booth-9" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">9</a>
+              <a href="#booth-10" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">10</a>
+              <a href="#booth-11" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">11</a>
+              <a href="#booth-12" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">12</a>
+              <a href="#booth-13" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">13</a>
+              <a href="#booth-14" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">14</a>
+              <a href="#booth-15" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">15</a>
+              <a href="#booth-16" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">16</a>
+              <a href="#booth-17" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">17</a>
+              <a href="#booth-18" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">18</a>
+              <a href="#booth-19" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">19</a>
+              <a href="#booth-20" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">20</a>
+              <a href="#booth-21" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">21</a>
+              <a href="#booth-22" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">22</a>
+              <a href="#booth-23" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">23</a>
+              <a href="#booth-24" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">24</a>
+              <a href="#booth-25" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">25</a>
+              <a href="#booth-26" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">26</a>
+              <a href="#booth-27" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">27</a>
+              <a href="#booth-28" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">28</a>
+              <a href="#booth-29" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">29</a>
+              <a href="#booth-30" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">30</a>
+              <a href="#booth-31" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">31</a>
+              <a href="#booth-32" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">32</a>
+              <a href="#booth-33" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">33</a>
+              <a href="#booth-34" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">34</a>
+              <a href="#booth-35" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">35</a>
+              <a href="#booth-36" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">36</a>
+              <a href="#booth-37" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">37</a>
+              <a href="#booth-38" class="px-2 py-1 rounded-full bg-blue-50 text-blue-600 text-center hover:bg-blue-100">38</a>
+              <a href="#booth-39" class="px-2 py-1 rounded-full bg-amber-100 text-amber-700 text-center hover:bg-amber-200">39</a>
+              <a href="#booth-40" class="px-2 py-1 rounded-full bg-amber-100 text-amber-700 text-center hover:bg-amber-200">40</a>
+              <a href="#booth-41" class="px-2 py-1 rounded-full bg-pink-100 text-pink-600 text-center hover:bg-pink-200">41</a>
+              <a href="#booth-42" class="px-2 py-1 rounded-full bg-pink-100 text-pink-600 text-center hover:bg-pink-200">42</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- How to walk -->
+        <div class="bg-white p-8 rounded-3xl soft-shadow border border-pink-100">
+          <h3 class="font-bold text-gray-700 mb-6 flex items-center gap-2">
+            <span class="text-pink-400">🧭</span> 会場内の歩き方（迷わない導線）
+          </h3>
+
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <span class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 font-bold">M</span>
+              <div>
+                <p class="text-sm font-bold text-gray-700">メイン会場：平土間ホール</p>
+                <p class="text-sm text-gray-600 leading-relaxed mt-1">
+                  ブース No.1〜No.38 が並びます。気になるブース番号を見つけたら、上の配置図で位置を確認できます。
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <span class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center flex-shrink-0 font-bold">S</span>
+              <div>
+                <p class="text-sm font-bold text-gray-700">特別企画：会議室（No.41 / No.42）</p>
+                <p class="text-sm text-gray-600 leading-relaxed mt-1">
+                  POCKET FITNESS（No.41）と SANDORAさんお話し会（No.42）は会議室で開催します。時間に合わせて移動してください。
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <span class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center flex-shrink-0 font-bold">K</span>
+              <div>
+                <p class="text-sm font-bold text-gray-700">キッチンカー：入口付近</p>
+                <p class="text-sm text-gray-600 leading-relaxed mt-1">
+                  キッチンカーは会場出入口付近に出店。休憩や待ち合わせにも便利です。
+                </p>
+              </div>
+            </div>
+
+              <div class="bg-pink-50/70 rounded-2xl p-5 border border-pink-100">
+              <p class="text-sm font-bold text-pink-600 mb-2">📌 まずはここを押さえる</p>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li>・ブース巡り → 平土間ホール（No.1〜38）</li>
+                <li>・飲食 → 入口付近のキッチンカー（No.39〜40）</li>
+                <li>・特別企画 → 会議室（No.41〜42）</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </section>
+
+  <!-- Exhibitors -->
+  <section class="py-24 px-4 max-w-7xl mx-auto" id="exhibitors">
+    <h2 class="text-3xl text-center mb-16 accent-text font-light">Exhibitors</h2>
+
+    <div class="max-w-3xl mx-auto mb-10">
+      <div class="bg-white rounded-3xl p-6 soft-shadow border border-pink-50">
+        <p class="text-sm text-gray-600 leading-relaxed">
+          出展者の<b>先頭のNo</b>は、会場内の<b>ブース番号</b>に対応しています（平土間ホール No.1〜38）。
+          <br class="hidden sm:block">
+          <span class="font-bold text-amber-600">No.39 / No.40</span> はキッチンカー（入口付近）、
+          <span class="font-bold text-pink-500">No.41 / No.42</span> は会議室（特別企画）です。
+        </p>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="exhibitor-container"></div>
+  </section>
+
+  <!-- Survey -->
+  <section class="py-24 px-4 bg-white" id="survey">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl accent-text font-light">ご来場アンケートのお願い</h2>
+        <p class="text-gray-500 mt-3">次回をより良くするため、ご協力お願いします</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div class="glass-card p-8 rounded-3xl soft-shadow border border-white">
+          <h3 class="text-lg font-bold text-gray-700 mb-4">ご感想をお聞かせください</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-6">
+            今後のイベントづくりの参考にさせていただきます。1分ほどで回答できます。
+          </p>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLScYD0GgkPnaIFLkCitxotYIkEjzdaDogV-QXvUwEHNc5Qy2XQ/viewform"
+            class="inline-flex items-center gap-2 bg-blue-400 text-white font-bold px-6 py-4 rounded-2xl hover:bg-blue-500 transition-all soft-shadow"
+            target="_blank"
+            rel="noopener"
+          >
+            アンケートに回答する
+          </a>
+          <p class="text-xs text-gray-500 mt-4">スマホからそのまま回答できます</p>
+        </div>
+
+        <div class="bg-pink-50/60 p-8 rounded-3xl soft-shadow border border-pink-100 text-center">
+          <p class="text-sm text-pink-500 font-bold mb-4">QRからも回答できます</p>
+          <div class="bg-white p-4 rounded-2xl inline-block soft-shadow">
+            <img src="QR_958175.png" alt="アンケートQR（画像がない場合は表示されません）" class="w-44 h-44 object-contain">
+          </div>
+          <p class="text-xs text-gray-500 mt-4">読み取れない場合はボタンからアクセスしてください</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram + Next Events -->
+  <section class="py-24 px-4 bg-pink-50/30">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl accent-text font-light">Information</h2>
+        <p class="text-gray-500 mt-3">最新情報と次回開催予定</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Instagram -->
+        <div class="flex items-center justify-center p-8 bg-gradient-to-br from-pink-100 to-white rounded-3xl relative overflow-hidden soft-shadow">
+          <div class="text-center z-10">
+            <p class="text-sm text-pink-500 font-bold mb-4 uppercase tracking-widest">Follow Instagram</p>
+            <div class="bg-white p-4 rounded-2xl soft-shadow inline-block transition-transform hover:scale-110">
+              <img src="instagram_qr.png" alt="Instagram QR" class="w-40 h-40">
+            </div>
+            <p class="text-xs text-gray-500 mt-4">最新の出店情報・タイムテーブルを更新します</p>
+          </div>
+          <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-pink-200 rounded-full blur-3xl opacity-50"></div>
+        </div>
+
+        <!-- Next events -->
+        <div class="glass-card p-8 rounded-3xl soft-shadow border border-white">
+          <h3 class="text-lg font-bold text-gray-700 mb-4 flex items-center gap-2">
+            <span class="text-pink-400">🗓️</span> 次回イベント予定
+          </h3>
+          <img src="next_events.png" alt="次回イベント開催予定" class="w-full h-auto rounded-2xl bg-white p-3">
+          <p class="text-xs text-gray-500 mt-4 leading-relaxed">
+            ※日程や内容は変更になる場合があります。最新情報はInstagramをご確認ください。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t py-20 px-4 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-2xl font-light mb-8">Love and Light Sennan 実行委員会</h3>
+      <div class="space-y-3 text-gray-500 mb-12 text-sm">
+        <p>委員長：加藤英司</p>
+        <p><a href="tel:09034695425" class="hover:underline">090-3469-5425</a></p>
+        <p><a href="mailto:loveandlight.sennan@gmail.com" class="hover:underline">loveandlight.sennan@gmail.com</a></p>
+        <p><a href="#survey" class="text-pink-400 font-bold">アンケート</a></p>
+      </div>
+      <p class="text-[10px] text-gray-300 tracking-[0.5em] uppercase">&copy; 2026 Love and Light Sennan</p>
+    </div>
+  </footer>
+
+  <script>
+    const exhibitors = [
+      { id: 1, name: "くるみ鍼灸治療院", detail: "鍼灸・筋膜リリース・シリカ販売" },
+      { id: 2, name: "セラピー ふうこ", detail: "楽健法(足圧整体)・ブロック解除" },
+      { id: 3, name: "名取接骨院", detail: "肩甲骨はがし" },
+      { id: 4, name: "ホッと! Smile", detail: "カイロプラクティック・美容エステ" },
+      { id: 5, name: "みよちゃんのお店", detail: "りんごジャムクッキー" },
+      { id: 6, name: "あとりえマシュマロ", detail: "メディカルアロマ作り" },
+      { id: 7, name: "山元ヒルズファーム", detail: "いちごがつなぐ笑顔" },
+      { id: 8, name: "株式会社あっぱれ", detail: "アカモク麺の試食販売" },
+      { id: 9, name: "叶星実", detail: "手相と数秘術の占術" },
+      { id: 10, name: "ブレインメンタリスト NOV", detail: "脳診断テスト" },
+      { id: 11, name: "メリージュ結婚相談所", detail: "無料結婚相談" },
+      { id: 12, name: "白魔女*菜翔", detail: "チャネリングカード鑑定" },
+      { id: 13, name: "フラ アロマまま", detail: "タロットお試しメニュー" },
+      { id: 14, name: "Find Natural Color", detail: "パーソナルカラー診断" },
+      { id: 15, name: "ひらみわつら工房", detail: "免疫力アップアクセサリー" },
+      { id: 16, name: "虹の橋マスミ", detail: "宇宙女神ヒーリング他" },
+      { id: 17, name: "オーラ分析・波動調整", detail: "オーラの可視化体験" },
+      { id: 18, name: "快運 マヤ暦と易占い", detail: "才能発見プロファイリング" },
+      { id: 19, name: "てらこやん18", detail: "カードプロファイリング" },
+      { id: 20, name: "いたばし千賀子", detail: "手相・タロット占い" },
+      { id: 21, name: "透視鑑定雷龍", detail: "透視鑑定及びヒーリング" },
+      { id: 22, name: "陰陽師 麻里", detail: "霊視×陰陽師の舞" },
+      { id: 23, name: "漢方養生たんぽぽ", detail: "漢方体質チェック" },
+      { id: 24, name: "SAYURI", detail: "魂の本質×手相セッション" },
+      { id: 25, name: "耳つぼ sato", detail: "耳つぼリフレ・ジュエリー" },
+      { id: 26, name: "幸せひろりん手相", detail: "心に火を灯す手相鑑定" },
+      { id: 27, name: "ドラゴンメッセンジャー", detail: "龍の想いを届けます" },
+      { id: 28, name: "ベラージュ", detail: "フレームセラピー・メイク体験" },
+      { id: 29, name: "花音 kanon", detail: "心理セラピストセッション" },
+      { id: 30, name: "時代屋", detail: "キネシオロジー・守護神鑑定" },
+      { id: 31, name: "松本啓(ひろ)", detail: "手相鑑定 20分" },
+      { id: 32, name: "エヴァンジェリスト サラ", detail: "マヤ暦&易経セッション" },
+      { id: 33, name: "ルシェンテ", detail: "ハンドマッサージ・ノーズwax" },
+      { id: 34, name: "天と泉", detail: "フィートセラピー" },
+      { id: 35, name: "陽だまり", detail: "美生氣功ヒーリング" },
+      { id: 36, name: "くるみdeアロマ", detail: "天然アロマオイルマッサージ" },
+      { id: 37, name: "足つぼ青空", detail: "足つぼマッサージ" },
+      { id: 38, name: "キッチンSara & Kuu", detail: "全粒粉小麦のこだわりメニュー" },
+      { id: 39, name: "ibiscafe船岡", detail: "【キッチンカー】ご飯・スイーツ" },
+      { id: 40, name: "みみちゃんのカフェ", detail: "【キッチンカー】軽食・カフェ" },
+      { id: 41, name: "POCKET FITNESS", detail: "【会議室】お悩み相談・エクササイズ" },
+      { id: 42, name: "サンドラお話し会", detail: "【会議室】2026年の静かな変化" }
+    ];
+
+    const container = document.getElementById('exhibitor-container');
+
+    exhibitors.forEach(ex => {
+      const isSpecial = (ex.id === 41 || ex.id === 42);
+      const isKitchen = (ex.id === 39 || ex.id === 40);
+
+      const badge = isSpecial
+        ? `<span class="ml-2 text-[10px] font-bold bg-pink-100 text-pink-600 px-2 py-1 rounded-full">会議室</span>`
+        : isKitchen
+          ? `<span class="ml-2 text-[10px] font-bold bg-amber-100 text-amber-700 px-2 py-1 rounded-full">キッチンカー</span>`
+          : `<span class="ml-2 text-[10px] font-bold bg-blue-50 text-blue-600 px-2 py-1 rounded-full">平土間ホール</span>`;
+
+      const card = document.createElement('div');
+      card.id = `booth-${ex.id}`;
+      card.className = 'bg-white p-6 rounded-3xl shadow-sm border border-pink-50 hover:shadow-md transition-all group cursor-default scroll-mt-28';
+
+      card.innerHTML = `
+        <div class="flex items-center gap-4">
+          <span class="w-8 h-8 rounded-full bg-pink-50 text-pink-400 text-xs flex items-center justify-center font-bold group-hover:bg-pink-400 group-hover:text-white transition-colors">
+            ${ex.id}
+          </span>
+          <div class="min-w-0">
+            <div class="flex items-center flex-wrap">
+              <h4 class="font-bold text-gray-700 text-sm">${ex.name}</h4>
+              ${badge}
+            </div>
+          </div>
+        </div>
+        <p class="mt-3 text-xs text-gray-500 leading-relaxed">${ex.detail}</p>
+        <a href="#hiradoma-map" class="mt-4 inline-block text-xs text-pink-500 font-bold hover:underline">配置図へ戻る</a>
+      `;
+
+      container.appendChild(card);
+    });
+  </script>
 </body>
 </html>
