@@ -86,6 +86,36 @@
       outline: 2px solid #f3b0c2;
       box-shadow: 0 12px 30px rgba(216, 129, 157, 0.18);
     }
+    .detail-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 60;
+    }
+    .detail-modal.is-open {
+      display: flex;
+    }
+    .detail-modal-card {
+      max-width: 720px;
+      width: 100%;
+      background: #fff;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.2);
+      border: 1px solid rgba(216, 129, 157, 0.2);
+    }
+    .detail-modal-close {
+      border: none;
+      background: #fce7ef;
+      color: #d8819d;
+      font-weight: 700;
+      border-radius: 9999px;
+      padding: 8px 14px;
+    }
   </style>
 </head>
 
@@ -254,6 +284,11 @@
               <li>・整う→めぐる→燃やす｜自宅でできるストレッチ＆トレーニング</li>
             </ul>
 
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+              12:00～12:30、15:30～16:00はストレッチの時間となります。
+              そこから参加も大歓迎。肩こりで困っている方など最適です。
+            </p>
+
             <div class="bg-blue-50/60 rounded-2xl p-4 text-sm text-blue-700 font-bold">
               ★ カウンセリングを受けた方は、ストレッチは無料（現地案内に従ってください）
             </div>
@@ -266,7 +301,7 @@
             <img src="sandora.png" alt="SANDORA" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
           </div>
 
-          <div class="glass-card rounded-[2.5rem] p-10 soft-shadow border-t-8 border-pink-200 w-full relative">
+          <div class="glass-card rounded-[2.5rem] p-10 soft-shadow border-t-8 border-pink-200 w-full relative cursor-pointer js-detail-trigger" data-detail="42" role="button" tabindex="0" aria-label="SANDORAさん お話し会の詳細を開く">
             <div class="absolute -top-5 right-10 bg-pink-400 text-white px-6 py-2 rounded-full font-bold soft-shadow">
               ¥500
             </div>
@@ -320,7 +355,13 @@
         <div class="glass-card p-6 rounded-[2rem] soft-shadow border border-white">
           <div class="flex items-center justify-between gap-4 flex-col md:flex-row">
             <div class="w-full">
-              <img src="map_access.png" alt="駐車場から会場出入口までの導線" class="w-full h-auto rounded-2xl border border-white">
+              <div class="booth-map" id="access-map">
+                <img src="map_access.png" alt="駐車場から会場出入口までの導線" class="w-full h-auto rounded-2xl border border-white">
+                <a href="#booth-41" class="booth-pin" style="left: 34%; top: 69%;">41</a>
+                <a href="#booth-42" class="booth-pin" style="left: 37%; top: 69%;">42</a>
+                <a href="#booth-39" class="booth-pin" style="left: 91%; top: 71%;">39</a>
+                <a href="#booth-40" class="booth-pin" style="left: 91%; top: 81%;">40</a>
+              </div>
             </div>
           </div>
 
@@ -568,6 +609,17 @@
     </div>
   </footer>
 
+  <!-- Detail modal (for booth 22) -->
+  <div class="detail-modal" id="detail-modal" aria-hidden="true">
+    <div class="detail-modal-card">
+      <div class="flex items-center justify-between gap-4 mb-4">
+        <h3 class="text-lg font-bold text-gray-700" id="detail-modal-title"></h3>
+        <button type="button" class="detail-modal-close" id="detail-modal-close">閉じる</button>
+      </div>
+      <div class="text-sm text-gray-600 leading-relaxed space-y-4" id="detail-modal-body"></div>
+    </div>
+  </div>
+
   <script>
     const exhibitors = [
       { id: 1,  name: "くるみ鍼灸治療院", detail: "鍼灸・筋膜リリース・松果体活性シリカ販売" },
@@ -577,7 +629,7 @@
       { id: 5,  name: "みよちゃんのお店", detail: "りんごジャムクッキー（1つ食べたら止まらない）" },
       { id: 6,  name: "あとりえマシュマロ", detail: "自分で作るメディカルアロマ" },
       { id: 7,  name: "株式会社山元ヒルズファーム", detail: "一粒のいちごがつなぐ家族の笑顔" },
-      { id: 8,  name: "株式会社あっぱれ", detail: "グルテンフリーアカモク麺の試食販売" },
+      { id: 8,  name: "株式会社あっぱれ", detail: "グルテンフリーアカモク麺の試食販売・今、SNSでバズっている「あっぱれめん」" },
       { id: 9,  name: "手相&数秘術鑑定士 叶(きょう)星実(ほしみ)", detail: "手相と数秘術を併用した占術" },
       { id: 10, name: "ブレインメンタリスト　NOV", detail: "脳診断テスト（3,000円）" },
       { id: 11, name: "メリージュ結婚相談所", detail: "プロポーズアドバイザー・無料結婚相談" },
@@ -586,12 +638,12 @@
       { id: 14, name: "Find Natural Color", detail: "パーソナルカラー診断体験・海外製ストール販売" },
       { id: 15, name: "ひらみわつら工房", detail: "免疫力アップアクセサリー販売" },
       { id: 16, name: "スピリチュアルライトワーカー 虹の橋マスミ", detail: "超波動オイル・宇宙女神ヒーリング他（2,000円〜）" },
-      { id: 17, name: "オーラ分析・波動調整", detail: "" },
+      { id: 17, name: "ヒーリング施術 SoftWind", detail: "オーラ分析・波動調整" },
       { id: 18, name: "あおいとアキエルの快運 マヤ暦と易占い", detail: "マヤ暦＆易占い（20分2,000円 / 30分3,000円）" },
       { id: 19, name: "てらこやん18", detail: "あなたの才能発見・カードプロファイリング" },
       { id: 20, name: "あなたの道開き手相鑑定士 いたばし千賀子", detail: "手相鑑定 / タロット占い（各20分2,000円）" },
       { id: 21, name: "透視鑑定　雷龍", detail: "透視鑑定及びヒーリング（約30分3,000円）" },
-      { id: 22, name: "Angel Light 陰陽師 麻里", detail: "霊視×陰陽師の舞（ビジネス/縁切り/縁結び等 2,000円〜20,000円）" },
+      { id: 22, name: "Angel Light 陰陽師 麻里", detail: "☝　詳細はお店の名前のクリックしてね　☝" },
       { id: 23, name: "漢方養生サロンたんぽぽ", detail: "漢方体質チェック（薬膳茶付き）・レイキ・ヘッドリフレ 他" },
       { id: 24, name: "スピリチュアルワーカーSAYURI", detail: "魂の本質 × 手相開運セッション" },
       { id: 25, name: "エメラルド式耳つぼリフレクソロジーのお店　sato", detail: "耳つぼリフレクソロジー・耳つぼジュエリー" },
@@ -615,6 +667,74 @@
     ];
 
     const container = document.getElementById('exhibitor-container');
+    const detailModal = document.getElementById('detail-modal');
+    const detailModalTitle = document.getElementById('detail-modal-title');
+    const detailModalBody = document.getElementById('detail-modal-body');
+    const detailModalClose = document.getElementById('detail-modal-close');
+
+    const detailMap = {
+      22: {
+        title: "Angel Light 陰陽師 麻里",
+        body: `
+          <div class="space-y-3">
+            <p class="font-bold text-pink-500">① 現実変容★霊視×陰陽師の舞</p>
+            <p>（ビジネス・縁切り・縁結び・金運・仕事・対人・恋愛・結婚・健康・能力・封印解除）<br>5分3000円、10分5000円、30分10,000円</p>
+          </div>
+          <div class="space-y-3">
+            <p class="font-bold text-pink-500">② 叡智覚醒★巫女鑑定</p>
+            <p>（故人・ガイドからのメッセージ＆叡智をお渡しします）<br>10分5000円、30分10,000円</p>
+          </div>
+          <div class="space-y-3">
+            <p class="font-bold text-pink-500">③ オリジナルヒーリング開発★ドラゴンヒーリング</p>
+            <p>（あなたの願いに沿ったヒーリングを開発＆施術）<br>10分5000円、30分10,000円</p>
+          </div>
+          <div class="space-y-3">
+            <p class="font-bold text-pink-500">⑤ 女性性解放ヒーリング</p>
+            <p>（PMS・婦人科系の不調・女性の魅力度UP）<br>5分3000円</p>
+          </div>
+          <div class="space-y-3">
+            <p class="font-bold text-pink-500">⑥ ★ドラゴンチャネリングセッション★</p>
+            <p>（ドラゴンからの今の貴方に必要なメッセージ）<br>10分3,000円、30分5,000円</p>
+          </div>
+          <div class="bg-pink-50/70 rounded-2xl p-4 border border-pink-100">
+            <p class="font-bold text-pink-600 mb-2">★サポートスキル</p>
+            <p>陰陽師、錬金術、ヒーリングなどの独自技術により時短で願いを手に入れるサポートを得意としています。</p>
+            <p class="font-bold text-pink-600 mt-4 mb-2">★得意とするサポート</p>
+            <p>ビジネスサポート / 家庭内不和 / DV / 虐待 / 性トラウマ / 婦人科系の不調 / 原因不明の不調</p>
+            <p class="font-bold text-pink-600 mt-4 mb-2">★お客様の実績</p>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>セッション直後に年収UP！</li>
+              <li>15〜100万円の臨時収入ゲット</li>
+              <li>好条件での就職＆夢の鎌倉移住</li>
+              <li>抽選で高級車ゲット</li>
+              <li>心身の不調の改善</li>
+              <li>ビジネス起業＆拡大</li>
+              <li>縁切り＆縁結び</li>
+              <li>不登校解消</li>
+            </ul>
+          </div>
+          <div class="text-xs text-gray-500 leading-relaxed">
+            イベントセッションのご予約は、DMまたは公式LINEからお問い合わせください。<br>
+            ブログ＆Instagramでお客様のセッション事例をご紹介中。<br>
+            <div class="mt-3 space-y-1">
+              <a href="https://ameblo.jp/angel-light19/" target="_blank" rel="noopener" class="text-pink-500 font-bold hover:underline">ブログを見る</a><br>
+              <a href="https://www.instagram.com/angel_light.mari?igsh=MWxwMzQ5NDJoc2o0aw%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="text-pink-500 font-bold hover:underline">Instagramを見る</a><br>
+              <a href="https://angellight19.com/" target="_blank" rel="noopener" class="text-pink-500 font-bold hover:underline">ホームページを見る</a>
+            </div>
+          </div>
+        `
+      },
+      42: {
+        title: "SANDORAさん お話し会",
+        body: `
+          <p>2026年、日本に生きる私たちの内側で、実はとても静かで大きな変化が起きています。</p>
+          <p>頑張っているのに進みにくい感覚</p>
+          <p>これまでのやり方がしっくりこなくなった感覚。<br>それは「間違っているサイン」ではなく、時代と意識のフェーズが変わりつつある合図かもしれません。</p>
+          <p>このお話会では、2026年という節目の年に何が起きているのか、そして「日本に生まれた意味」がどのように私たちの生き方に影響しているのかを、怖さや難しさのない言葉でお伝えします。</p>
+          <p>使命を探さなくてもいい。<br>無理に変わらなくてもいい。<br>ただ、自分の感覚を信じて生きるための静かなヒントを持ち帰っていただける時間です。</p>
+        `
+      }
+    };
 
     exhibitors.forEach(ex => {
       const isSpecial = (ex.id === 41 || ex.id === 42);
@@ -625,10 +745,16 @@
         : isKitchen
           ? `<span class="ml-2 text-[10px] font-bold bg-amber-100 text-amber-700 px-2 py-1 rounded-full">キッチンカー</span>`
           : `<span class="ml-2 text-[10px] font-bold bg-blue-50 text-blue-600 px-2 py-1 rounded-full">平土間ホール</span>`;
+      const returnMap = (isSpecial || isKitchen) ? '#access-map' : '#hiradoma-map';
+      const returnLabel = (isSpecial || isKitchen) ? '上の配置図へ戻る' : '配置図へ戻る';
 
       const card = document.createElement('div');
       card.id = `booth-${ex.id}`;
       card.className = 'booth-card bg-white p-6 rounded-3xl shadow-sm border border-pink-50 hover:shadow-md transition-all group cursor-default scroll-mt-28';
+
+      const nameHtml = detailMap[ex.id]
+        ? `<button type="button" class="font-bold text-gray-700 text-sm hover:underline js-detail-trigger" data-detail="${ex.id}">${ex.name}</button>`
+        : `<h4 class="font-bold text-gray-700 text-sm">${ex.name}</h4>`;
 
       card.innerHTML = `
         <div class="flex items-center gap-4">
@@ -637,16 +763,65 @@
           </span>
           <div class="min-w-0">
             <div class="flex items-center flex-wrap">
-              <h4 class="font-bold text-gray-700 text-sm">${ex.name}</h4>
+              ${nameHtml}
               ${badge}
             </div>
           </div>
         </div>
         <p class="mt-3 text-xs text-gray-500 leading-relaxed">${ex.detail}</p>
-        <a href="#hiradoma-map" class="mt-4 inline-block text-xs text-pink-500 font-bold hover:underline">配置図へ戻る</a>
+        <a href="${returnMap}" class="mt-4 inline-block text-xs text-pink-500 font-bold hover:underline">${returnLabel}</a>
       `;
 
       container.appendChild(card);
+    });
+
+    const openDetail = (id) => {
+      const detail = detailMap[id];
+      if (!detail) return;
+      detailModalTitle.textContent = detail.title;
+      detailModalBody.innerHTML = detail.body;
+      detailModal.classList.add('is-open');
+      detailModal.setAttribute('aria-hidden', 'false');
+    };
+
+    container.addEventListener('click', (event) => {
+      const trigger = event.target.closest('.js-detail-trigger');
+      if (!trigger) return;
+      const id = trigger.getAttribute('data-detail');
+      openDetail(id);
+    });
+
+    document.addEventListener('click', (event) => {
+      const trigger = event.target.closest('.js-detail-trigger');
+      if (!trigger || container.contains(trigger)) return;
+      const id = trigger.getAttribute('data-detail');
+      openDetail(id);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        const trigger = event.target.closest('.js-detail-trigger');
+        if (trigger) {
+          event.preventDefault();
+          const id = trigger.getAttribute('data-detail');
+          openDetail(id);
+        }
+      }
+    });
+
+    const closeDetailModal = () => {
+      detailModal.classList.remove('is-open');
+      detailModal.setAttribute('aria-hidden', 'true');
+    };
+
+    detailModalClose.addEventListener('click', closeDetailModal);
+    detailModal.addEventListener('click', (event) => {
+      if (event.target === detailModal) closeDetailModal();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && detailModal.classList.contains('is-open')) {
+        closeDetailModal();
+      }
     });
   </script>
 </body>
