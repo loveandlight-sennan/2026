@@ -90,6 +90,17 @@
       outline: 2px solid #f3b0c2;
       box-shadow: 0 12px 30px rgba(216, 129, 157, 0.18);
     }
+    .lyric-line {
+      opacity: 0.6;
+      transition: color 0.9s ease, opacity 0.9s ease, transform 0.9s ease;
+      cursor: pointer;
+    }
+    .lyric-line.is-active {
+      color: #f9a8d4;
+      font-weight: 500;
+      transform: scale(1.005);
+      opacity: 1;
+    }
     .detail-modal {
       position: fixed;
       inset: 0;
@@ -155,14 +166,62 @@
         2026.02.22 SUN | 11:00 - 16:00
       </p>
 
-      <div class="mb-8 flex justify-center">
+      <div class="mb-10 flex flex-col md:flex-row items-center justify-center gap-4">
         <div class="glass-card inline-flex flex-col items-center gap-3 px-6 py-4 rounded-3xl soft-shadow border border-white">
           <p class="text-xs text-pink-400 font-bold tracking-widest">BGM</p>
-          <audio controls preload="none" loop class="w-64 max-w-full">
+          <audio id="bgm-audio" controls preload="none" loop class="w-64 max-w-full">
             <source src="bgm.mp3" type="audio/mpeg">
             お使いのブラウザは音声再生に対応していません。
           </audio>
         </div>
+
+        <details class="glass-card p-4 rounded-2xl border border-white text-left w-full md:w-auto max-w-xl">
+          <summary class="text-xs text-gray-500 cursor-pointer select-none">BGMの歌詞・意味を開く</summary>
+          <div class="mt-4 text-sm text-gray-600 leading-relaxed space-y-2 text-center" id="bgm-lyrics">
+            <p class="lyric-line" data-start="26">Breathe in slow, let it glow.</p>
+            <p class="text-xs text-gray-500">ゆっくり息をして　光をひらく</p>
+
+            <p class="lyric-line" data-start="38">Gentle light begins to show.</p>
+            <p class="text-xs text-gray-500">胸の奥の灯りが　目を覚ます</p>
+
+            <p class="lyric-line" data-start="51">Love and light, soft and bright.</p>
+            <p class="text-xs text-gray-500">Love and Light　やさしく　あたたかく</p>
+
+            <p class="lyric-line" data-start="58">Hold my heart through the night.</p>
+            <p class="text-xs text-gray-500">闇の中でも　心を包んで</p>
+
+            <p class="lyric-line" data-start="64">Love and light, floating high.</p>
+            <p class="text-xs text-gray-500">Love and Light　空へと舞い上がる</p>
+
+            <p class="lyric-line" data-start="72">Like a prayer in the sky.</p>
+            <p class="text-xs text-gray-500 mb-4">祈りはそっと　天へ還る</p>
+
+            <p class="lyric-line" data-start="105">Quiet change, healing rain.</p>
+            <p class="text-xs text-gray-500">静かな癒しが　雨のように降る</p>
+
+            <p class="lyric-line" data-start="118">We return to love again.</p>
+            <p class="text-xs text-gray-500">わたしは還る　愛のもとへ</p>
+
+            <p class="lyric-line" data-start="131">Love and light, soft and bright.</p>
+            <p class="text-xs text-gray-500">Love and Light　やさしく　あたたかく</p>
+
+            <p class="lyric-line" data-start="138">Hold my heart through the night.</p>
+            <p class="text-xs text-gray-500">闇の中でも　心を包んで</p>
+
+            <p class="lyric-line" data-start="144">Love and light, floating high.</p>
+            <p class="text-xs text-gray-500">Love and Light　空へと舞い上がる</p>
+
+            <p class="lyric-line" data-start="152">Like a prayer in the sky.</p>
+            <p class="text-xs text-gray-500 mb-4">祈りはそっと　天へ還る</p>
+          </div>
+          <h3 class="text-sm font-bold text-pink-500 mt-6 mb-2">歌詞の意味</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            私たちの内側にいつも在る「Love」と「Light」を思い出すための祈りの歌です。
+            ゆっくり息を吸うたびに、胸の奥にあるやさしい光が点いていく。外側の出来事ではなく、内側の波動が整っていくのを感じてください。
+            「夜」は、眠りの夜でも、人生の迷いや不安という“魂の夜”でもあります。その時間を、愛と光が静かに抱きしめ、守ってくれる。
+            この場で私たちは、癒しの雨に洗われて、また本来の愛へ帰っていきます。
+          </p>
+        </details>
       </div>
 
       <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
@@ -934,6 +993,46 @@
         closeDetailModal();
       }
     });
+
+    const bgmAudio = document.getElementById('bgm-audio');
+    const lyricLines = Array.from(document.querySelectorAll('#bgm-lyrics .lyric-line'));
+    if (bgmAudio && lyricLines.length) {
+      const updateLyricHighlight = () => {
+        const current = bgmAudio.currentTime;
+        let activeIndex = -1;
+        for (let i = 0; i < lyricLines.length; i++) {
+          const start = Number(lyricLines[i].dataset.start || 0);
+          const nextStart = i < lyricLines.length - 1 ? Number(lyricLines[i + 1].dataset.start || 0) : Infinity;
+          if (current >= start && current < nextStart) {
+            activeIndex = i;
+            break;
+          }
+        }
+        lyricLines.forEach((line, index) => {
+          line.classList.toggle('is-active', index === activeIndex);
+        });
+      };
+
+      bgmAudio.addEventListener('timeupdate', updateLyricHighlight);
+      bgmAudio.addEventListener('play', updateLyricHighlight);
+      bgmAudio.addEventListener('seeked', updateLyricHighlight);
+      bgmAudio.addEventListener('ended', () => {
+        lyricLines.forEach(line => line.classList.remove('is-active'));
+      });
+
+      lyricLines.forEach((line) => {
+        line.addEventListener('click', () => {
+          const start = Number(line.dataset.start || 0);
+          if (Number.isNaN(start)) return;
+          bgmAudio.currentTime = start;
+          if (bgmAudio.paused) {
+            bgmAudio.play().catch(() => {});
+          } else {
+            updateLyricHighlight();
+          }
+        });
+      });
+    }
   </script>
 </body>
 </html>
