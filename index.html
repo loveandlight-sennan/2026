@@ -117,11 +117,25 @@
     .detail-modal-card {
       max-width: 720px;
       width: 100%;
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       background: #fff;
       border-radius: 24px;
       padding: 24px;
       box-shadow: 0 18px 50px rgba(0,0,0,0.2);
       border: 1px solid rgba(216, 129, 157, 0.2);
+    }
+    @media (max-width: 640px) {
+      .detail-modal {
+        align-items: flex-start;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 16px 14px 32px;
+      }
+      .detail-modal-card {
+        max-height: none;
+      }
     }
     .detail-modal-close {
       border: none;
@@ -997,6 +1011,8 @@
     const bgmAudio = document.getElementById('bgm-audio');
     const lyricLines = Array.from(document.querySelectorAll('#bgm-lyrics .lyric-line'));
     if (bgmAudio && lyricLines.length) {
+      let lyricTimer = null;
+
       const updateLyricHighlight = () => {
         const current = bgmAudio.currentTime;
         let activeIndex = -1;
@@ -1013,10 +1029,26 @@
         });
       };
 
+      const startLyricTimer = () => {
+        if (lyricTimer) return;
+        lyricTimer = setInterval(updateLyricHighlight, 250);
+      };
+
+      const stopLyricTimer = () => {
+        if (!lyricTimer) return;
+        clearInterval(lyricTimer);
+        lyricTimer = null;
+      };
+
       bgmAudio.addEventListener('timeupdate', updateLyricHighlight);
-      bgmAudio.addEventListener('play', updateLyricHighlight);
+      bgmAudio.addEventListener('play', () => {
+        updateLyricHighlight();
+        startLyricTimer();
+      });
+      bgmAudio.addEventListener('pause', stopLyricTimer);
       bgmAudio.addEventListener('seeked', updateLyricHighlight);
       bgmAudio.addEventListener('ended', () => {
+        stopLyricTimer();
         lyricLines.forEach(line => line.classList.remove('is-active'));
       });
 
