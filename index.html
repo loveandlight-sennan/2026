@@ -110,6 +110,7 @@
       justify-content: center;
       padding: 20px;
       z-index: 60;
+      touch-action: pan-y;
     }
     .detail-modal.is-open {
       display: flex;
@@ -120,6 +121,7 @@
       max-height: calc(100vh - 40px);
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
       background: #fff;
       border-radius: 24px;
       padding: 24px;
@@ -643,6 +645,72 @@
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="exhibitor-container"></div>
   </section>
 
+  <!-- Booth Reservation -->
+  <section class="py-24 px-4 bg-white" id="booth-reservation">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl accent-text font-light">ブース予約受付</h2>
+        <p class="text-gray-500 mt-3">各ブースへの事前予約はこちらから</p>
+      </div>
+
+      <div class="grid lg:grid-cols-1 gap-10">
+        <div class="glass-card p-8 rounded-3xl soft-shadow border border-white">
+          <h3 class="text-lg font-bold text-gray-700 mb-4">予約フォーム</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-6">
+            ブース番号・訪問予定時間・お名前・メールアドレス・電話番号をご入力ください。
+          </p>
+
+          <form id="booth-reservation-form" class="space-y-4" name="booth-reservation" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="booth-reservation">
+            <p class="hidden">
+              <label>入力しないでください <input name="bot-field"></label>
+            </p>
+            <div>
+              <label for="reservation-booth" class="text-xs font-bold text-gray-500">ブース番号</label>
+              <select id="reservation-booth" name="booth" required
+                class="mt-2 w-full rounded-2xl border border-pink-100 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-pink-300">
+                <option value="" selected>選択してください</option>
+              </select>
+            </div>
+            <div>
+              <label for="reservation-time" class="text-xs font-bold text-gray-500">訪問予定時間</label>
+              <select id="reservation-time" name="time" required
+                class="mt-2 w-full rounded-2xl border border-pink-100 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-pink-300">
+                <option value="" selected>選択してください</option>
+              </select>
+            </div>
+            <div>
+              <label for="reservation-name" class="text-xs font-bold text-gray-500">お名前</label>
+              <input id="reservation-name" name="name" type="text" placeholder="例：山田 花子" required
+                class="mt-2 w-full rounded-2xl border border-pink-100 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-pink-300" />
+            </div>
+            <div>
+              <label for="reservation-email" class="text-xs font-bold text-gray-500">メールアドレス</label>
+              <input id="reservation-email" name="email" type="email" placeholder="example@email.com" required
+                class="mt-2 w-full rounded-2xl border border-pink-100 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-pink-300" />
+            </div>
+            <div>
+              <label for="reservation-phone" class="text-xs font-bold text-gray-500">電話番号</label>
+              <input id="reservation-phone" name="phone" type="tel" placeholder="090-1234-5678" required
+                class="mt-2 w-full rounded-2xl border border-pink-100 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-pink-300" />
+            </div>
+
+            <button type="submit"
+              class="w-full bg-pink-400 text-white font-bold px-6 py-4 rounded-2xl hover:bg-pink-500 transition-all soft-shadow">
+              予約を送信する
+            </button>
+            <p class="text-xs text-gray-500 mt-2">
+              ご予約ありがとうございます。<br>
+              ブース担当者にお伝えします。<br>
+              当日お会いできるのを楽しみにしております。<br>
+              お気をつけてお越しくださいませ。
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Survey -->
   <section class="py-24 px-4 bg-white" id="survey">
     <div class="max-w-6xl mx-auto">
@@ -868,6 +936,31 @@
           </div>
         `
       },
+      10: {
+        title: "ブレインメンタリスト　NOV",
+        body: `
+          <div class="space-y-4">
+            <p>私たちは“脳という仕組み”で世界を解釈し、選択している。すなわち、脳があなたの「見方」と「選択」を決めている。その脳内を“見える化”すると、自分が分かりはじめる。</p>
+            <div class="bg-pink-50/70 rounded-2xl p-4 border border-pink-100 text-sm text-gray-600 leading-relaxed">
+              <p class="font-bold text-pink-500 mb-2">ブース紹介</p>
+              <p>QRコードをスマホで読み取り、質問に答えるだけで、あなたの脳の傾向を可視化し、結果をもとにわかりやすく言語化します。自分を“感覚”ではなく数値で理解できるため、客観的に自己理解が進みます。</p>
+              <p class="font-bold text-pink-500 mt-4 mb-2">わかること：</p>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>性格特性／強み・弱み</li>
+                <li>今の感情の状態</li>
+                <li>コミュニケーションの特性</li>
+                <li>仕事におけるポジショニングや方向性</li>
+                <li>自分のマネジメント（行動・習慣の整え方）に活かせるヒント</li>
+              </ul>
+              <p class="mt-4">体験15分＋解説15分。予約いただくとスムーズにご案内できます（スマホが無い場合はPCをご用意します）。</p>
+            </div>
+            <div class="bg-white rounded-2xl p-4 border border-pink-100 text-sm text-gray-600">
+              <p class="font-bold text-pink-500 mb-2">予約はこちらから（先着10名）</p>
+              <a href="mailto:owner.bluetree@gmail.com" class="text-pink-500 font-bold hover:underline">owner.bluetree@gmail.com</a>
+            </div>
+          </div>
+        `
+      },
       5: {
         title: "みよちゃんのお店",
         body: `
@@ -1007,6 +1100,43 @@
         closeDetailModal();
       }
     });
+
+    const reservationBoothSelect = document.getElementById('reservation-booth');
+    const reservationTimeSelect = document.getElementById('reservation-time');
+
+    const populateReservationBooths = () => {
+      if (!reservationBoothSelect) return;
+      const fragment = document.createDocumentFragment();
+      exhibitors.forEach((ex) => {
+        const option = document.createElement('option');
+        option.value = String(ex.id);
+        option.textContent = `${ex.id}　${ex.name}`;
+        fragment.appendChild(option);
+      });
+      reservationBoothSelect.appendChild(fragment);
+    };
+
+    const pad2 = (value) => String(value).padStart(2, '0');
+    const populateReservationTimes = () => {
+      if (!reservationTimeSelect) return;
+      const startMinutes = 11 * 60;
+      const endMinutes = 15 * 60 + 45;
+      const stepMinutes = 15;
+      const fragment = document.createDocumentFragment();
+      for (let mins = startMinutes; mins <= endMinutes; mins += stepMinutes) {
+        const hours = Math.floor(mins / 60);
+        const minutes = mins % 60;
+        const label = `${pad2(hours)}:${pad2(minutes)}`;
+        const option = document.createElement('option');
+        option.value = label;
+        option.textContent = label;
+        fragment.appendChild(option);
+      }
+      reservationTimeSelect.appendChild(fragment);
+    };
+
+    populateReservationBooths();
+    populateReservationTimes();
 
     const bgmAudio = document.getElementById('bgm-audio');
     const lyricLines = Array.from(document.querySelectorAll('#bgm-lyrics .lyric-line'));
