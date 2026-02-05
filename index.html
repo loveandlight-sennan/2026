@@ -275,15 +275,13 @@
       <p class="text-xl md:text-2xl text-gray-700 mb-3 leading-relaxed font-light">
         東北の地を愛と光で包みたい！
       </p>
-      <p class="text-xs md:text-sm text-gray-600 mb-4 leading-relaxed">
-        2026.02.22(日) 11:00–16:00｜えずこホール
+      <p class="text-xl md:text-2xl text-gray-600 mb-4 leading-relaxed font-semibold">
+        2026.02.22(日) 11:00–16:00
       </p>
       <div class="text-base md:text-lg text-gray-600 mb-4 flex flex-col items-center gap-1">
         <p>開催まであと <span id="countdown-days" class="font-bold text-pink-500 text-xl md:text-2xl">--</span> 日</p>
       </div>
-      <p class="text-sm md:text-base text-gray-600 mb-10 leading-relaxed">
-        宮城県仙南で開催するスピリチュアルイベント『Love and Light Sennan vol.1』の出展ブース、ワンコイン企画、会場案内・アクセスを掲載しています。
-      </p>
+      <div class="mb-10"></div>
 
       <div class="mb-10 flex flex-col md:flex-row items-center justify-center gap-4">
         <div class="glass-card inline-flex flex-col items-center gap-3 px-6 py-4 rounded-3xl soft-shadow border border-white">
@@ -365,18 +363,9 @@
         <a href="#venue" class="inline-block bg-pink-400 text-white font-bold px-7 py-4 rounded-2xl hover:bg-pink-500 transition-all soft-shadow text-sm whitespace-nowrap">
           会場内案内を見る
         </a>
-        <details class="seo-details">
-          <summary class="seo-summary bg-white/70 text-pink-500 px-7 py-4 rounded-2xl hover:bg-white transition-all soft-shadow border border-white text-sm whitespace-nowrap">イベント概要（詳細）</summary>
-          <div class="seo-body">
-            <ul class="space-y-1">
-              <li>開催日：2026年2月22日（日）</li>
-              <li>時間：11:00–16:00</li>
-              <li>会場：えずこホール（宮城県柴田郡大河原町字小島1-1）</li>
-              <li>内容：スピリチュアル系ブース出展／ワンコイン企画／会場案内・アクセス</li>
-              <li>公式：https://love-and-light.jp/</li>
-            </ul>
-          </div>
-        </details>
+        <button type="button" id="event-summary-open" class="seo-summary bg-white/70 text-pink-500 px-7 py-4 rounded-2xl hover:bg-white transition-all soft-shadow border border-white text-sm whitespace-nowrap">
+          イベント概要（詳細）
+        </button>
         <a href="#access" class="inline-block bg-white/70 text-pink-500 font-bold px-7 py-4 rounded-2xl hover:bg-white transition-all soft-shadow border border-white text-sm whitespace-nowrap">
           アクセスを見る
         </a>
@@ -390,6 +379,22 @@
 
     </div>
   </header>
+
+  <div class="detail-modal" id="event-summary-modal" aria-hidden="true">
+    <div class="detail-modal-card">
+      <div class="flex items-center justify-between gap-4 mb-4">
+        <h3 class="text-lg font-bold text-gray-700">イベント概要（詳細）</h3>
+        <button type="button" class="detail-modal-close" id="event-summary-close">閉じる</button>
+      </div>
+      <div class="text-sm text-gray-600 leading-relaxed space-y-3">
+        <p>開催日：2026年2月22日（日）</p>
+        <p>時間：11:00–16:00</p>
+        <p>会場：えずこホール（宮城県柴田郡大河原町字小島1-1）</p>
+        <p>内容：スピリチュアル系ブース出展／ワンコイン企画／会場案内・アクセス</p>
+        <p>公式：https://love-and-light.jp/</p>
+      </div>
+    </div>
+  </div>
 
   <!-- Access -->
   <section class="py-24 px-4 bg-white relative" id="access">
@@ -1223,6 +1228,27 @@
       detailModal.setAttribute('aria-hidden', 'false');
     };
 
+    const eventSummaryModal = document.getElementById('event-summary-modal');
+    const eventSummaryOpen = document.getElementById('event-summary-open');
+    const eventSummaryClose = document.getElementById('event-summary-close');
+    const openEventSummary = () => {
+      if (!eventSummaryModal) return;
+      eventSummaryModal.classList.add('is-open');
+      eventSummaryModal.setAttribute('aria-hidden', 'false');
+    };
+    const closeEventSummary = () => {
+      if (!eventSummaryModal) return;
+      eventSummaryModal.classList.remove('is-open');
+      eventSummaryModal.setAttribute('aria-hidden', 'true');
+    };
+    if (eventSummaryOpen) eventSummaryOpen.addEventListener('click', openEventSummary);
+    if (eventSummaryClose) eventSummaryClose.addEventListener('click', closeEventSummary);
+    if (eventSummaryModal) {
+      eventSummaryModal.addEventListener('click', (event) => {
+        if (event.target === eventSummaryModal) closeEventSummary();
+      });
+    }
+
     container.addEventListener('click', (event) => {
       const trigger = event.target.closest('.js-detail-trigger');
       if (!trigger) return;
@@ -1260,6 +1286,11 @@
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && detailModal.classList.contains('is-open')) {
         closeDetailModal();
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && eventSummaryModal && eventSummaryModal.classList.contains('is-open')) {
+        closeEventSummary();
       }
     });
 
