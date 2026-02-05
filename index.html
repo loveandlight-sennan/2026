@@ -1,10 +1,79 @@
-<!-- 修正概要: 出展者名を公式表記に差し替え、カテゴリ判定を1-38/39-40/41-42で統一、配置図ピンを1-38のみに整理しカードへスクロール/ハイライト連動、キッチンカー/会議室の案内を分離。 -->
+<!-- 修正概要: 出展者名を公式表記に差し替え、カテゴリ判定を1-39/40-41/42-43で統一、配置図ピンを1-39までに整理しカードへスクロール/ハイライト連動、キッチンカー/会議室の案内を分離。 -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Love and Light Sennan vol.1 | 2026.02.22</title>
+  <title>Love and Light Sennan vol.1｜宮城県仙南 スピリチュアルイベント 2026.02.22</title>
+  <meta name="description" content="宮城県仙南で開催するスピリチュアルイベント『Love and Light Sennan vol.1』。2026年2月22日（日）11:00–16:00、えずこホール。出展ブース紹介、ワンコイン企画、会場案内・アクセスを掲載。">
+  <link rel="canonical" href="https://love-and-light.jp/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Love and Light Sennan">
+  <meta property="og:title" content="Love and Light Sennan vol.1｜宮城県仙南 スピリチュアルイベント">
+  <meta property="og:description" content="2026年2月22日（日）11:00–16:00 えずこホール。出展ブース／ワンコイン企画／会場案内・アクセス。">
+  <meta property="og:url" content="https://love-and-light.jp/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Love and Light Sennan vol.1">
+  <meta name="twitter:description" content="宮城県仙南のスピリチュアルイベント。2026/2/22 えずこホール。">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Love and Light Sennan vol.1",
+      "startDate": "2026-02-22T11:00:00+09:00",
+      "endDate": "2026-02-22T16:00:00+09:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "えずこホール 仙南芸術文化センター",
+        "address": "宮城県柴田郡大河原町字小島1-1"
+      },
+      "url": "https://love-and-light.jp/",
+      "description": "宮城県仙南で開催するスピリチュアルイベント『Love and Light Sennan vol.1』。2026年2月22日（日）11:00–16:00、えずこホール。出展ブース紹介、ワンコイン企画、会場案内・アクセスを掲載。"
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "駐車場はありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "無料駐車場があります。混雑時はスタッフ案内に従ってください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "アクセス方法は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "会場はえずこホール（宮城県柴田郡大河原町字小島1-1）です。アクセス詳細はページ内のアクセス案内をご確認ください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "支払い方法は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "支払い方法はブースごとに異なる場合があります。詳細は当日各ブースでご案内します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ワンコイン企画とは？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "会議室で実施するワンコインの特別企画です。内容や時間はページ内のSpecial Programをご確認ください。"
+          }
+        }
+      ]
+    }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
@@ -147,6 +216,32 @@
       border-radius: 9999px;
       padding: 8px 14px;
     }
+    .seo-details {
+      max-width: 720px;
+      margin: 0;
+      text-align: left;
+    }
+    .seo-summary {
+      list-style: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      text-align: center;
+      min-width: 220px;
+    }
+    .seo-summary::-webkit-details-marker { display: none; }
+    .seo-details .seo-body {
+      margin-top: 10px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(216, 129, 157, 0.15);
+      border-radius: 20px;
+      padding: 14px 18px;
+      font-size: 12px;
+      color: #5f5f5f;
+    }
   </style>
 </head>
 
@@ -177,14 +272,22 @@
         Love and Light<br><span class="accent-text font-medium">Sennan</span>
       </h1>
 
-      <p class="text-xl md:text-2xl text-gray-700 mb-10 leading-relaxed font-light">
-        東北の地を愛と光で包みたい！<br>
-        2026.02.22 SUN | 11:00 - 16:00
+      <p class="text-xl md:text-2xl text-gray-700 mb-3 leading-relaxed font-light">
+        東北の地を愛と光で包みたい！
+      </p>
+      <p class="text-xs md:text-sm text-gray-600 mb-4 leading-relaxed">
+        2026.02.22(日) 11:00–16:00｜えずこホール
+      </p>
+      <div class="text-base md:text-lg text-gray-600 mb-4 flex flex-col items-center gap-1">
+        <p>開催まであと <span id="countdown-days" class="font-bold text-pink-500 text-xl md:text-2xl">--</span> 日</p>
+      </div>
+      <p class="text-sm md:text-base text-gray-600 mb-10 leading-relaxed">
+        宮城県仙南で開催するスピリチュアルイベント『Love and Light Sennan vol.1』の出展ブース、ワンコイン企画、会場案内・アクセスを掲載しています。
       </p>
 
       <div class="mb-10 flex flex-col md:flex-row items-center justify-center gap-4">
         <div class="glass-card inline-flex flex-col items-center gap-3 px-6 py-4 rounded-3xl soft-shadow border border-white">
-          <p class="text-xs text-pink-400 font-bold tracking-widest">BGM</p>
+          <p class="text-xs text-pink-400 font-bold tracking-widest">会場BGM</p>
           <audio id="bgm-audio" controls preload="none" loop class="w-64 max-w-full">
             <source src="bgm.mp3" type="audio/mpeg">
             お使いのブラウザは音声再生に対応していません。
@@ -192,7 +295,7 @@
         </div>
 
         <details class="glass-card p-4 rounded-2xl border border-white text-left w-full md:w-auto max-w-xl">
-          <summary class="text-xs text-gray-500 cursor-pointer select-none">BGMの歌詞・意味を開く</summary>
+          <summary class="text-xs text-gray-500 cursor-pointer select-none">会場BGMの歌詞・意味を開く</summary>
           <div class="mt-4 text-sm text-gray-600 leading-relaxed space-y-2 text-center" id="bgm-lyrics">
             <p class="lyric-line" data-start="26">Breathe in slow, let it glow.</p>
             <p class="text-xs text-gray-500">ゆっくり息をして　光をひらく</p>
@@ -258,40 +361,35 @@
         </div>
       </div>
 
-      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#venue" class="inline-block bg-pink-400 text-white font-bold px-8 py-4 rounded-2xl hover:bg-pink-500 transition-all soft-shadow">
+      <div class="mt-10 flex flex-wrap gap-4 justify-center">
+        <a href="#venue" class="inline-block bg-pink-400 text-white font-bold px-7 py-4 rounded-2xl hover:bg-pink-500 transition-all soft-shadow text-sm whitespace-nowrap">
           会場内案内を見る
         </a>
-        <a href="#access" class="inline-block bg-white/70 text-pink-500 font-bold px-8 py-4 rounded-2xl hover:bg-white transition-all soft-shadow border border-white">
+        <details class="seo-details">
+          <summary class="seo-summary bg-white/70 text-pink-500 px-7 py-4 rounded-2xl hover:bg-white transition-all soft-shadow border border-white text-sm whitespace-nowrap">イベント概要（詳細）</summary>
+          <div class="seo-body">
+            <ul class="space-y-1">
+              <li>開催日：2026年2月22日（日）</li>
+              <li>時間：11:00–16:00</li>
+              <li>会場：えずこホール（宮城県柴田郡大河原町字小島1-1）</li>
+              <li>内容：スピリチュアル系ブース出展／ワンコイン企画／会場案内・アクセス</li>
+              <li>公式：https://love-and-light.jp/</li>
+            </ul>
+          </div>
+        </details>
+        <a href="#access" class="inline-block bg-white/70 text-pink-500 font-bold px-7 py-4 rounded-2xl hover:bg-white transition-all soft-shadow border border-white text-sm whitespace-nowrap">
           アクセスを見る
         </a>
-        <a href="#exhibitors" class="inline-block bg-white/70 text-pink-500 font-bold px-8 py-4 rounded-2xl hover:bg-white transition-all soft-shadow border border-white">
+        <a href="#exhibitors" class="inline-block bg-white/70 text-pink-500 font-bold px-7 py-4 rounded-2xl hover:bg-white transition-all soft-shadow border border-white text-sm whitespace-nowrap">
           出展者一覧へ
         </a>
-        <a href="#survey" class="inline-block bg-blue-400 text-white font-bold px-8 py-4 rounded-2xl hover:bg-blue-500 transition-all soft-shadow">
+        <a href="#survey" class="inline-block bg-blue-400 text-white font-bold px-7 py-4 rounded-2xl hover:bg-blue-500 transition-all soft-shadow text-sm whitespace-nowrap">
           アンケートへ
         </a>
       </div>
+
     </div>
   </header>
-
-  <!-- Stamp Rally -->
-  <section class="py-10 px-4 bg-white/80">
-    <div class="max-w-6xl mx-auto">
-      <div class="glass-card p-6 md:p-8 rounded-3xl soft-shadow border border-white flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="text-center md:text-left">
-          <p class="text-sm font-bold text-pink-500 tracking-widest">スタンプラリー</p>
-          <h3 class="text-xl md:text-2xl font-bold text-gray-700 mt-2">500円以上のご利用でシールを1枚</h3>
-          <p class="text-sm text-gray-600 mt-2 leading-relaxed">
-            シール3つでプレゼントがもらえるよ。ぜひ参加してね！
-          </p>
-        </div>
-        <div class="w-full md:w-1/2">
-          <img src="stamp_rally.png" alt="スタンプラリーの流れ（シール3つでプレゼント）" class="w-full h-auto rounded-2xl">
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Access -->
   <section class="py-24 px-4 bg-white relative" id="access">
@@ -336,10 +434,10 @@
               ③ 平土間ホール（メイン会場）へ入場
             </p>
             <p>
-              キッチンカーは入口付近（No.39〜40）に出店。飲食や待ち合わせに便利です。
+              キッチンカーは入口付近（No.40〜41）に出店。飲食や待ち合わせに便利です。
             </p>
             <p>
-              特別企画（POCKET FITNESS / お話し会）は1F会議室（No.41〜42）で実施します。
+              特別企画（POCKET FITNESS / お話し会）は1F会議室（No.42〜43）で実施します。
             </p>
           </div>
           <div class="mt-6 glass-card p-4 rounded-2xl border border-white">
@@ -407,15 +505,15 @@
         <!-- Sandora -->
         <div class="flex flex-col items-center group">
           <div class="blob-frame w-80 h-80 mb-10">
-            <img src="sandora.png" alt="SANDORA" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <img src="sandora.png" alt="サンドラさんのお話し会" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
           </div>
 
-          <div class="glass-card rounded-[2.5rem] p-10 soft-shadow border-t-8 border-pink-200 w-full relative cursor-pointer js-detail-trigger flex flex-col" data-detail="42" role="button" tabindex="0" aria-label="SANDORAさん お話し会の詳細を開く">
+          <div class="glass-card rounded-[2.5rem] p-10 soft-shadow border-t-8 border-pink-200 w-full relative cursor-pointer js-detail-trigger flex flex-col" data-detail="43" role="button" tabindex="0" aria-label="サンドラさん お話し会の詳細を開く">
             <div class="absolute -top-5 right-10 bg-pink-400 text-white px-6 py-2 rounded-full font-bold soft-shadow">
               ¥500
             </div>
 
-            <h3 class="text-2xl font-bold mb-2 text-pink-500">SANDORAさん お話し会</h3>
+            <h3 class="text-2xl font-bold mb-2 text-pink-500">サンドラさんのお話し会</h3>
             <p class="text-sm font-bold text-gray-400 mb-6">1F 会議室｜13:00-14:00</p>
 
             <p class="text-gray-600 leading-relaxed text-left mb-6 text-sm">
@@ -434,11 +532,11 @@
               <p class="font-bold text-pink-600 mb-2">★ お話し会特典 ★</p>
               <p>・事前予約の方（2/19日まで）：フル版の資料＋プチギフト🎁</p>
               <p>・事前予約は、loveandlight.sennan@gmail.comまで</p>
-              <p>・SANDORAさんの連絡先をご存じの方は直接ご予約可能です</p>
+              <p>・サンドラさんの連絡先をご存じの方は直接ご予約可能です</p>
               <p>・当日ご参加の場合は簡易版のみになります</p>
             </div>
 
-            <button type="button" class="mt-6 inline-flex items-center justify-center gap-2 bg-pink-400 text-white font-bold px-5 py-3 rounded-2xl hover:bg-pink-500 transition-all soft-shadow text-sm js-detail-trigger" data-detail="42">
+            <button type="button" class="mt-6 inline-flex items-center justify-center gap-2 bg-pink-400 text-white font-bold px-5 py-3 rounded-2xl hover:bg-pink-500 transition-all soft-shadow text-sm js-detail-trigger" data-detail="43">
               詳細を見る
             </button>
           </div>
@@ -447,7 +545,7 @@
       <div class="mt-12 glass-card p-6 rounded-3xl soft-shadow border border-white max-w-4xl mx-auto">
         <p class="text-sm text-gray-600 leading-relaxed">
           <span class="font-bold text-pink-500">会議室（スペシャル）</span>は
-          <span class="font-bold text-pink-500">No.41 / No.42</span> の2ブースです。
+          <span class="font-bold text-pink-500">No.42 / No.43</span> の2ブースです。
         </p>
       </div>
     </div>
@@ -478,10 +576,10 @@
             <div class="w-full">
               <div class="booth-map" id="access-map">
                 <img src="map_access.png" alt="駐車場から会場出入口までの導線" class="w-full h-auto rounded-2xl border border-white">
-                <a href="#booth-41" class="booth-pin" style="left: 34%; top: 69%;">41</a>
-                <a href="#booth-42" class="booth-pin" style="left: 37%; top: 69%;">42</a>
-                <a href="#booth-39" class="booth-pin" style="left: 91%; top: 71%;">39</a>
-                <a href="#booth-40" class="booth-pin" style="left: 91%; top: 81%;">40</a>
+                <a href="#booth-42" class="booth-pin" style="left: 35%; top: 69%;">42</a>
+                <a href="#booth-43" class="booth-pin" style="left: 39%; top: 69%;">43</a>
+                <a href="#booth-40" class="booth-pin" style="left: 94%; top: 71%;">40</a>
+                <a href="#booth-41" class="booth-pin" style="left: 94%; top: 81%;">41</a>
               </div>
             </div>
           </div>
@@ -515,53 +613,55 @@
         <div class="glass-card p-6 rounded-[2rem] soft-shadow border border-white" id="hiradoma-map">
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-bold text-gray-700">会場内：平土間ホール（ブース番号配置）</h3>
-            <span class="text-xs font-bold bg-pink-100 text-pink-600 px-3 py-1 rounded-full">No.1〜No.38</span>
+            <span class="text-xs font-bold bg-pink-100 text-pink-600 px-3 py-1 rounded-full">No.1〜No.39</span>
           </div>
           <div class="booth-map">
             <img src="layout_hiradoma.png" alt="平土間ホール ブース番号レイアウト" class="w-full h-auto rounded-2xl bg-white p-3">
-            <a href="#booth-14" class="booth-pin" style="left: 36%; top: 15.5%;">14</a>
-            <a href="#booth-15" class="booth-pin" style="left: 44%; top: 15.5%;">15</a>
-            <a href="#booth-16" class="booth-pin" style="left: 53%; top: 15.5%;">16</a>
-            <a href="#booth-17" class="booth-pin" style="left: 62%; top: 15.5%;">17</a>
-            <a href="#booth-38" class="booth-pin" style="left: 70%; top: 15.5%;">38</a>
+            <a href="#booth-14" class="booth-pin" style="left: 28%; top: 12%;">14</a>
+            <a href="#booth-15" class="booth-pin" style="left: 38%; top: 12%;">15</a>
+            <a href="#booth-16" class="booth-pin" style="left: 47%; top: 12%;">16</a>
+            <a href="#booth-17" class="booth-pin" style="left: 56%; top: 12%;">17</a>
+            <a href="#booth-39" class="booth-pin" style="left: 66%; top: 12%;">39</a>
+            <a href="#booth-38" class="booth-pin" style="left: 76%; top: 12%;">38</a>
+            
 
-            <a href="#booth-4" class="booth-pin" style="left: 19%; top: 30%;">4</a>
-            <a href="#booth-3" class="booth-pin" style="left: 19%; top: 43%;">3</a>
-            <a href="#booth-2" class="booth-pin" style="left: 19%; top: 57%;">2</a>
-            <a href="#booth-1" class="booth-pin" style="left: 19%; top: 70%;">1</a>
+            <a href="#booth-4" class="booth-pin" style="left: 15%; top: 26%;">4</a>
+            <a href="#booth-3" class="booth-pin" style="left: 15%; top: 41%;">3</a>
+            <a href="#booth-2" class="booth-pin" style="left: 15%; top: 56%;">2</a>
+            <a href="#booth-1" class="booth-pin" style="left: 15%; top: 72%;">1</a>
 
-            <a href="#booth-37" class="booth-pin" style="left: 84%; top: 28%;">37</a>
-            <a href="#booth-36" class="booth-pin" style="left: 84%; top: 43%;">36</a>
-            <a href="#booth-35" class="booth-pin" style="left: 84%; top: 57%;">35</a>
-            <a href="#booth-34" class="booth-pin" style="left: 84%; top: 71%;">34</a>
+            <a href="#booth-37" class="booth-pin" style="left: 88%; top: 24%;">37</a>
+            <a href="#booth-36" class="booth-pin" style="left: 88%; top: 41%;">36</a>
+            <a href="#booth-35" class="booth-pin" style="left: 88%; top: 56%;">35</a>
+            <a href="#booth-34" class="booth-pin" style="left: 88%; top: 71%;">34</a>
 
-            <a href="#booth-13" class="booth-pin" style="left: 36%; top: 32%;">13</a>
-            <a href="#booth-22" class="booth-pin" style="left: 44%; top: 32%;">22</a>
-            <a href="#booth-12" class="booth-pin" style="left: 36%; top: 41%;">12</a>
-            <a href="#booth-21" class="booth-pin" style="left: 44%; top: 41%;">21</a>
-            <a href="#booth-11" class="booth-pin" style="left: 36%; top: 49%;">11</a>
-            <a href="#booth-20" class="booth-pin" style="left: 44%; top: 49%;">20</a>
-            <a href="#booth-10" class="booth-pin" style="left: 36%; top: 58%;">10</a>
-            <a href="#booth-19" class="booth-pin" style="left: 44%; top: 58%;">19</a>
-            <a href="#booth-9" class="booth-pin" style="left: 36%; top: 66%;">9</a>
-            <a href="#booth-18" class="booth-pin" style="left: 44%; top: 66%;">18</a>
+            <a href="#booth-13" class="booth-pin" style="left: 35%; top: 30%;">13</a>
+            <a href="#booth-22" class="booth-pin" style="left: 43%; top: 30%;">22</a>
+            <a href="#booth-12" class="booth-pin" style="left: 35%; top: 38%;">12</a>
+            <a href="#booth-21" class="booth-pin" style="left: 43%; top: 38%;">21</a>
+            <a href="#booth-11" class="booth-pin" style="left: 35%; top: 48%;">11</a>
+            <a href="#booth-20" class="booth-pin" style="left: 43%; top: 48%;">20</a>
+            <a href="#booth-10" class="booth-pin" style="left: 35%; top: 57%;">10</a>
+            <a href="#booth-19" class="booth-pin" style="left: 43%; top: 57%;">19</a>
+            <a href="#booth-9" class="booth-pin" style="left: 35%; top: 66%;">9</a>
+            <a href="#booth-18" class="booth-pin" style="left: 43%; top: 66%;">18</a>
 
-            <a href="#booth-28" class="booth-pin" style="left: 60%; top: 32%;">28</a>
-            <a href="#booth-33" class="booth-pin" style="left: 68%; top: 32%;">33</a>
-            <a href="#booth-27" class="booth-pin" style="left: 60%; top: 39%;">27</a>
-            <a href="#booth-32" class="booth-pin" style="left: 68%; top: 41%;">32</a>
-            <a href="#booth-26" class="booth-pin" style="left: 60%; top: 44%;">26</a>
-            <a href="#booth-31" class="booth-pin" style="left: 68%; top: 49%;">31</a>
-            <a href="#booth-25" class="booth-pin" style="left: 60%; top: 49%;">25</a>
-            <a href="#booth-30" class="booth-pin" style="left: 68%; top: 58%;">30</a>
-            <a href="#booth-24" class="booth-pin" style="left: 60%; top: 58%;">24</a>
-            <a href="#booth-23" class="booth-pin" style="left: 60%; top: 66%;">23</a>
-            <a href="#booth-29" class="booth-pin" style="left: 68%; top: 66%;">29</a>
+            <a href="#booth-28" class="booth-pin" style="left: 61%; top: 30%;">28</a>
+            <a href="#booth-33" class="booth-pin" style="left: 70%; top: 30%;">33</a>
+            <a href="#booth-27" class="booth-pin" style="left: 61%; top: 36%;">27</a>
+            <a href="#booth-32" class="booth-pin" style="left: 70%; top: 38%;">32</a>
+            <a href="#booth-26" class="booth-pin" style="left: 61%; top: 41%;">26</a>
+            <a href="#booth-31" class="booth-pin" style="left: 70%; top: 48%;">31</a>
+            <a href="#booth-25" class="booth-pin" style="left: 61%; top: 48%;">25</a>
+            <a href="#booth-30" class="booth-pin" style="left: 70%; top: 56%;">30</a>
+            <a href="#booth-24" class="booth-pin" style="left: 61%; top: 56%;">24</a>
+            <a href="#booth-23" class="booth-pin" style="left: 61%; top: 66%;">23</a>
+            <a href="#booth-29" class="booth-pin" style="left: 70%; top: 66%;">29</a>
 
-            <a href="#booth-5" class="booth-pin" style="left: 38%; top: 82%;">5</a>
-            <a href="#booth-6" class="booth-pin" style="left: 48%; top: 82%;">6</a>
-            <a href="#booth-7" class="booth-pin" style="left: 57%; top: 82%;">7</a>
-            <a href="#booth-8" class="booth-pin" style="left: 66%; top: 82%;">8</a>
+            <a href="#booth-5" class="booth-pin" style="left: 37%; top: 83%;">5</a>
+            <a href="#booth-6" class="booth-pin" style="left: 47%; top: 83%;">6</a>
+            <a href="#booth-7" class="booth-pin" style="left: 57%; top: 83%;">7</a>
+            <a href="#booth-8" class="booth-pin" style="left: 67%; top: 83%;">8</a>
           </div>
           <p class="text-xs text-gray-500 mt-4 leading-relaxed">
             入口から入って「平土間ホール」へ。ブース番号は、出展者一覧のNoと対応しています。
@@ -580,7 +680,7 @@
               <div>
                 <p class="text-sm font-bold text-gray-700">メイン会場：平土間ホール</p>
                 <p class="text-sm text-gray-600 leading-relaxed mt-1">
-                  ブース No.1〜No.38 が並びます。気になるブース番号を見つけたら、上の配置図で位置を確認できます。
+                  ブース No.1〜No.39 が並びます。気になるブース番号を見つけたら、上の配置図で位置を確認できます。
                 </p>
               </div>
             </div>
@@ -588,9 +688,9 @@
             <div class="flex gap-4">
               <span class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center flex-shrink-0 font-bold">S</span>
               <div>
-                <p class="text-sm font-bold text-gray-700">特別企画：会議室（No.41 / No.42）</p>
+                <p class="text-sm font-bold text-gray-700">特別企画：会議室（No.42 / No.43）</p>
                 <p class="text-sm text-gray-600 leading-relaxed mt-1">
-                  POCKET FITNESS（No.41）と SANDORAさんお話し会（No.42）は会議室で開催します。時間に合わせて移動してください。
+                  POCKET FITNESS（No.42）と サンドラさんのお話し会（No.43）は会議室で開催します。時間に合わせて移動してください。
                 </p>
               </div>
             </div>
@@ -608,15 +708,15 @@
               <div class="bg-pink-50/70 rounded-2xl p-5 border border-pink-100">
               <p class="text-sm font-bold text-pink-600 mb-2">📌 まずはここを押さえる</p>
               <ul class="text-sm text-gray-700 space-y-2">
-                <li>・ブース巡り → 平土間ホール（No.1〜38）</li>
-                <li>・飲食 → 入口付近のキッチンカー（No.39〜40）</li>
-                <li>・特別企画 → 会議室（No.41〜42）</li>
+                <li>・ブース巡り → 平土間ホール（No.1〜39）</li>
+                <li>・飲食 → 入口付近のキッチンカー（No.40〜41）</li>
+                <li>・特別企画 → 会議室（No.42〜43）</li>
               </ul>
             </div>
             <div class="bg-white/70 rounded-2xl p-5 border border-white">
               <p class="text-sm font-bold text-gray-700 mb-2">入口付近：キッチンカー</p>
               <p class="text-xs text-gray-600 leading-relaxed">
-                <span class="font-bold text-amber-600">No.39 / No.40</span> が入口付近に出店します。
+                <span class="font-bold text-amber-600">No.40 / No.41</span> が入口付近に出店します。
               </p>
             </div>
           </div>
@@ -634,15 +734,40 @@
     <div class="max-w-3xl mx-auto mb-10">
       <div class="bg-white rounded-3xl p-6 soft-shadow border border-pink-50">
         <p class="text-sm text-gray-600 leading-relaxed">
-          出展者の<b>先頭のNo</b>は、会場内の<b>ブース番号</b>に対応しています（平土間ホール No.1〜38）。
+          出展者の<b>先頭のNo</b>は、会場内の<b>ブース番号</b>に対応しています（平土間ホール No.1〜39）。
           <br class="hidden sm:block">
-          <span class="font-bold text-amber-600">No.39 / No.40</span> はキッチンカー（入口付近）、
-          <span class="font-bold text-pink-500">No.41 / No.42</span> は会議室（特別企画）です。
+          <span class="font-bold text-amber-600">No.40 / No.41</span> はキッチンカー（入口付近）、
+          <span class="font-bold text-pink-500">No.42 / No.43</span> は会議室（特別企画）です。
         </p>
       </div>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="exhibitor-container"></div>
+
+    <div class="max-w-4xl mx-auto mt-12">
+      <details class="bg-white rounded-3xl p-6 soft-shadow border border-pink-50">
+        <summary class="text-sm font-bold text-pink-500 cursor-pointer">出店者一覧（No.1〜43）</summary>
+        <div class="mt-4 space-y-4 text-sm text-gray-700" id="exhibitor-text-list"></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Stamp Rally -->
+  <section class="py-10 px-4 bg-white/80">
+    <div class="max-w-6xl mx-auto">
+      <div class="glass-card p-6 md:p-8 rounded-3xl soft-shadow border border-white flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="text-center md:text-left">
+          <p class="text-sm font-bold text-pink-500 tracking-widest">スタンプラリー</p>
+          <h3 class="text-xl md:text-2xl font-bold text-gray-700 mt-2">500円以上のご利用でシールを1枚</h3>
+          <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+            シール3つでプレゼントがもらえるよ。ぜひ参加してね！
+          </p>
+        </div>
+        <div class="w-full md:w-1/2">
+          <img src="stamp_rally.png" alt="スタンプラリーの流れ（シール3つでプレゼント）" class="w-full h-auto rounded-2xl">
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Booth Reservation -->
@@ -699,7 +824,7 @@
               class="w-full bg-pink-400 text-white font-bold px-6 py-4 rounded-2xl hover:bg-pink-500 transition-all soft-shadow">
               予約を送信する
             </button>
-                    </form>
+          </form>
         </div>
       </div>
     </div>
@@ -707,6 +832,30 @@
 
   <!-- Survey -->
   <section class="py-24 px-4 bg-white" id="survey">
+    <div class="max-w-6xl mx-auto mb-20">
+      <div class="text-center">
+        <h2 class="text-3xl accent-text font-light">よくある質問（FAQ）</h2>
+        <p class="text-gray-500 mt-3">ご来場前の参考にご確認ください</p>
+      </div>
+      <div class="mt-6 space-y-4 text-base text-gray-700">
+        <div>
+          <p class="font-bold text-gray-700">Q. 駐車場はありますか？</p>
+          <p>A. 無料駐車場があります。混雑時はスタッフ案内に従ってください。</p>
+        </div>
+        <div>
+          <p class="font-bold text-gray-700">Q. アクセス方法は？</p>
+          <p>A. 会場はえずこホール（宮城県柴田郡大河原町字小島1-1）です。アクセス詳細はページ内のアクセス案内をご確認ください。</p>
+        </div>
+        <div>
+          <p class="font-bold text-gray-700">Q. 支払い方法は？</p>
+          <p>A. 支払い方法はブースごとに異なる場合があります。詳細は当日各ブースでご案内します。</p>
+        </div>
+        <div>
+          <p class="font-bold text-gray-700">Q. ワンコイン企画とは？</p>
+          <p>A. 会議室で実施するワンコインの特別企画です。内容や時間はページ内のSpecial Programをご確認ください。</p>
+        </div>
+      </div>
+    </div>
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
         <h2 class="text-3xl accent-text font-light">ご来場アンケートのお願い</h2>
@@ -841,10 +990,11 @@
       { id: 36, name: "くるみdeアロマ", detail: "天然アロマオイルでマッサージ" },
       { id: 37, name: "足つぼ青空", detail: "足つぼマッサージ" },
       { id: 38, name: "キッチンSara＆Kuu", detail: "宮城県産の全粒粉小麦を使用しております" },
-      { id: 39, name: "ibiscafe船岡", detail: "【キッチンカー】ご飯物、軽食、スイーツ系など" },
-      { id: 40, name: "みみちゃんの気まぐれカフェ", detail: "【キッチンカー】軽食、カフェ" },
-      { id: 41, name: "POCKET FITNESS宮城岩沼店", detail: "【会議室】身体のお悩み相談、改善方法・お家でできるエクササイズ" },
-      { id: 42, name: "サンドラさんのお話会", detail: "【会議室】13時〜14時開催 / 料金 500円" }
+      { id: 39, name: "楽好珈琲", detail: "ハンドドリップ／オリジナル焙煎豆" },
+      { id: 40, name: "ibiscafe船岡", detail: "【キッチンカー】ご飯物、軽食、スイーツ系など" },
+      { id: 41, name: "みみちゃんのお店", detail: "【キッチンカー】軽食、カフェ" },
+      { id: 42, name: "POCKET FITNESS宮城岩沼店", detail: "【会議室】身体のお悩み相談、改善方法・お家でできるエクササイズ" },
+      { id: 43, name: "サンドラさんのお話会", detail: "【会議室】13時〜14時開催 / 料金 500円" }
     ];
 
     const container = document.getElementById('exhibitor-container');
@@ -905,8 +1055,8 @@
           </div>
         `
       },
-      42: {
-        title: "SANDORAさん お話し会",
+      43: {
+        title: "サンドラさんのお話し会",
         body: `
           <p>2026年、日本に生きる私たちの内側で、実はとても静かで大きな変化が起きています。</p>
           <p>頑張っているのに進みにくい感覚</p>
@@ -915,7 +1065,7 @@
           <p>使命を探さなくてもいい。<br>無理に変わらなくてもいい。<br>ただ、自分の感覚を信じて生きるための静かなヒントを持ち帰っていただける時間です。</p>
         `
       },
-      41: {
+      42: {
         title: "POCKET FITNESS 宮城岩沼店",
         body: `
           <p class="font-bold text-blue-500">参加費：500円</p>
@@ -1006,8 +1156,8 @@
     };
 
     exhibitors.forEach(ex => {
-      const isSpecial = (ex.id === 41 || ex.id === 42);
-      const isKitchen = (ex.id === 39 || ex.id === 40);
+      const isSpecial = (ex.id === 42 || ex.id === 43);
+      const isKitchen = (ex.id === 40 || ex.id === 41);
 
       const badge = isSpecial
         ? `<span class="ml-2 text-[10px] font-bold bg-pink-100 text-pink-600 px-2 py-1 rounded-full">会議室</span>`
@@ -1045,6 +1195,24 @@
 
       container.appendChild(card);
     });
+
+    const exhibitorTextList = document.getElementById('exhibitor-text-list');
+    if (exhibitorTextList) {
+      const fragment = document.createDocumentFragment();
+      exhibitors.forEach((ex) => {
+        const isSpecial = (ex.id === 42 || ex.id === 43);
+        const isKitchen = (ex.id === 40 || ex.id === 41);
+        const category = isSpecial ? '会議室' : isKitchen ? 'キッチンカー' : '平土間ホール';
+        const item = document.createElement('div');
+        item.innerHTML = `
+          <h3 class="font-bold text-gray-700">No.${ex.id} ${ex.name}</h3>
+          <p class="text-gray-600">${ex.detail}</p>
+          <small class="text-gray-500">カテゴリ：${category}</small>
+        `;
+        fragment.appendChild(item);
+      });
+      exhibitorTextList.appendChild(fragment);
+    }
 
     const openDetail = (id) => {
       const detail = detailMap[id];
@@ -1189,8 +1357,16 @@
         });
       });
     }
+
+    const countdownEl = document.getElementById('countdown-days');
+    if (countdownEl) {
+      const target = new Date('2026-02-22T11:00:00+09:00');
+      const now = new Date();
+      const diffMs = target.getTime() - now.getTime();
+      const days = Math.max(0, Math.ceil(diffMs / (1000 * 60 * 60 * 24)));
+      countdownEl.textContent = String(days);
+    }
+
   </script>
 </body>
 </html>
-
-
